@@ -2,53 +2,38 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"os/exec"
-	"strings"
-
+	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
+	"io"
+	"log"
+	"os"
+	"strings"
+	"sync"
 )
 
 var (
 	initialChoices = []string{"List Packages In Project", "Search Packages", "Help", "Quit"}
-	packages       = []string{}
+	logger         *log.Logger
+	logMu          sync.Mutex
+	logBuf         strings.Builder
 )
 
-type NugetOperations interface {
-	SearchPackage() ([]string, error)
-	InstallPackage() (bool, error)
-	UninstallPackage() (bool, error)
-	ListInstalledPackages() ([]string, error)
-}
-
-type ListNugetPackages struct {
-	Packages []string
-}
-
-type NugetSearchResultMessage struct {
-	Result []string
-	Error  error
-}
-
-type InstallNugetPackagesMessage struct {
-	Package string
-	Error   error
-}
-
-type UninstallNugetPackageMessage struct {
-	Package []string
-	Error   error
-}
-
-func (s NugetSearchResultMessage) ListPackages() ([]string, error) {
-	return s.Result, nil
-}
-
 func initialModel() model {
+	// Create a log file
+	logFile, err := os.OpenFile("app.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatal("Failed to open log file:", err)
+	}
+	logger = log.New(io.MultiWriter(logFile, &logBuf), "", log.Ltime|log.Lshortfile)
 
+	ti := textinput.New() // TODO: this bish dont render
+	ti.Placeholder = "Search for packages"
+	ti.Focus()
+	ti.Width = 20
 	return model{
-		Choices: initialChoices,
-
+		InputField: ti,
+		Choices:    initialChoices,
+		ViewState:  MainView,
 		// A map which indicates which choices are selected. We're using
 		// the  map like a mathematical set. The keys refer to the indexes
 		// of the `choices` slice, above.
@@ -59,22 +44,6 @@ func initialModel() model {
 func (m model) Init() tea.Cmd {
 	// Just return `nil`, which means "no I/O right now, please."
 	return nil
-}
-
-func (m model) SelectionView(initalMessage string, choices []string) string {
-	for i, choice := range choices {
-		cursor := " " // no cursor
-		if m.Cursor == i {
-			cursor = ">" // cursor!
-		}
-		chcked := " " // not selected
-		if _, ok := m.Selected[i]; ok {
-			chcked = "x" // selected!
-		}
-
-		initalMessage += fmt.Sprintf("%s [%s] %s\n", cursor, chcked, choice)
-	}
-	return initalMessage
 }
 
 func main() {

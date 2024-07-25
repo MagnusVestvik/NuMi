@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/charmbracelet/bubbles/textinput"
 )
 
 const (
@@ -48,31 +47,23 @@ func (m model) MainView() string {
 	s += "\nPress q to quit.\n"
 	return s
 }
-
 func (m model) SearchView() string {
-	ti := textinput.New()
-	ti.Placeholder = "Search for packages"
-	ti.Focus()
-	ti.Width = 20
-	packages, err := SearchPackages("search ", ti.Value())
-	if err != nil {
-		return err.Error()
-	}
-	m.Choices = packages
-
-	s := ""
-	for i, choice := range m.Choices {
-		cursor := " " // no cursor
-		if m.Cursor == i {
-			cursor = ">" // cursor!
+	s := m.InputField.View() + "\n\n"
+	if len(m.Choices) == 0 {
+		s += "No results yet. Press Enter to search.\n"
+	} else {
+		for i, choice := range m.Choices {
+			cursor := " " // no cursor
+			if m.Cursor == i {
+				cursor = ">" // cursor!
+			}
+			checked := " " // not selected
+			if _, ok := m.Selected[i]; ok {
+				checked = "x" // selected!
+			}
+			s += fmt.Sprintf("%s [%s] %s\n", cursor, checked, choice)
 		}
-		checked := " " // not selected
-		if _, ok := m.Selected[i]; ok {
-			checked = "x" // selected!
-		}
-		s += fmt.Sprintf("%s [%s] %s\n", cursor, checked, choice)
 	}
-
 	return s
 }
 
