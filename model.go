@@ -1,11 +1,13 @@
 package main
 
 import (
+	"github.com/charmbracelet/bubbles/table"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
 type model struct {
+	Table        table.Model
 	InputField   textinput.Model
 	Choices      []string
 	ViewState    int
@@ -14,20 +16,27 @@ type model struct {
 	SearchTerm   string
 	isInstalling bool
 	ShowLogs     bool
+	WindowSize   tea.WindowSizeMsg
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	logMu.Lock()
 	logger.Printf("Received message: %T", msg)
 	logMu.Unlock()
+	var cmd tea.Cmd
 
 	switch msg := msg.(type) {
 	case SearchResult:
 		logMu.Lock()
-		logger.Printf("Received SearchResult: %v", msg)
+		logger.Printf("Received SearchResult: %v", msg.PackageName)
 		logMu.Unlock()
-		m.Choices = msg.Result
+		m.Table = arrangeSearchResultTable(msg) // TODO: denne oppdaterer ikke table
+		logMu.Lock()
+		logger.Printf("updated table: %v", msg)
+		logMu.Unlock()
 		m.Cursor = 0
+		return m, cmd
+
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "ctrl+l":

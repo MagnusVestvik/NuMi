@@ -2,7 +2,13 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/charmbracelet/lipgloss"
 )
+
+var baseStyle = lipgloss.NewStyle().
+	BorderStyle(lipgloss.NormalBorder()).
+	BorderForeground(lipgloss.Color("240"))
 
 const (
 	MainView = iota
@@ -49,20 +55,10 @@ func (m model) MainView() string {
 }
 func (m model) SearchView() string {
 	s := m.InputField.View() + "\n\n"
-	if len(m.Choices) == 0 {
+	if len(m.Table.Rows()) == 0 {
 		s += "No results yet. Press Enter to search.\n"
 	} else {
-		for i, choice := range m.Choices {
-			cursor := " " // no cursor
-			if m.Cursor == i {
-				cursor = ">" // cursor!
-			}
-			checked := " " // not selected
-			if _, ok := m.Selected[i]; ok {
-				checked = "x" // selected!
-			}
-			s += fmt.Sprintf("%s [%s] %s\n", cursor, checked, choice)
-		}
+		s += baseStyle.Render(m.Table.View()) + "\n"
 	}
 	return s
 }

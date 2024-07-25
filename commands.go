@@ -7,8 +7,10 @@ import (
 )
 
 type SearchResult struct {
-	PackageName string
-	Result      []string
+	PackageName        []string
+	PackageVersion     []string
+	PackageDescription []string
+	PackageDownloads   []string
 }
 
 func runNuGetCommand(args ...string) (string, error) {
@@ -19,7 +21,9 @@ func runNuGetCommand(args ...string) (string, error) {
 	output, err := cmd.CombinedOutput()
 	logMu.Lock()
 	logger.Printf("Command output: %v", string(output))
-	logger.Printf("Command error: %v", err)
+	if err != nil {
+		logger.Printf("Command error: %v", err)
+	}
 	logMu.Unlock()
 	return string(output), err
 }
@@ -30,18 +34,24 @@ func SearchPackagesCmd(args ...string) tea.Cmd {
 		logger.Printf("Executing SearchPackagesCmd with args: %v", args)
 		logMu.Unlock()
 		response, err := runNuGetCommand("search", args[0]) // TODO: handle multiple args
+		response = strings.Replace(response, "Source: nuget.org", "", 1)
+
+		response = strings.Replace(response, "Source: nuget.org", "", 1)
 		if err != nil {
 			logMu.Lock()
 			logger.Printf("Error in SearchPackagesCmd: %v", err)
 			logMu.Unlock()
 			return err
 		}
-		result := SearchResult{PackageName: args[0], Result: strings.Split(response, "--------------------")}
+		searchResult := SearchResult{PackageName: getNamesFromSearchResult(response),
+			PackageVersion:     getVersionsFromSearchResult(response),
+			PackageDescription: getDescriptionsFromSearchResult(response),
+			PackageDownloads:   getNumDownloadsFromSearchResult(response)}
 
 		logMu.Lock()
-		logger.Printf("SearchPackagesCmd result: %v", result)
+		logger.Printf("SearchPackagesCmd result: %v", searchResult)
 		logMu.Unlock()
-		return result
+		return searchResult
 	}
 }
 
