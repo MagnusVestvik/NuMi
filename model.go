@@ -20,6 +20,8 @@ type model struct {
 	showLogs     bool
 	windowSize   tea.WindowSizeMsg
 	progress     progress.Model
+	width        int
+	height       int
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -31,9 +33,6 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case SearchResult:
 		m.viewState = SearchView
-		logMu.Lock()
-		logger.Printf("Received SearchResult: %v", msg.PackageName)
-		logMu.Unlock()
 		m.table = arrangeSearchResultTable(msg) // TODO: denne oppdaterer ikke table
 		logMu.Lock()
 		logger.Printf("updated table: %v", msg)
@@ -47,25 +46,46 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.showLogs = !m.showLogs
 			return m, nil
 		}
+
+	case tea.WindowSizeMsg:
+		m.width = msg.Width
+		m.height = msg.Height
+
+		m.progress.Width = msg.Width - padding*2 - 4
+		if m.progress.Width > maxWidth {
+			m.progress.Width = maxWidth
+		}
+		return m, nil
+
+	case tickMsg:
+		logMu.Lock()
+		logger.Printf("TickMsg received: %v", msg)
+		logMu.Unlock()
+		if m.progress.Percent() == 1.0 {
+			m.viewState = SearchView
+			return m, m.progress.SetPercent(0)
+		}
+		// Note that you can also use progress.Model.SetPercent to set the
+		// percentage value explicitly, too.
+		cmd := m.progress.IncrPercent(0.25)
+		logMu.Lock()
+		logger.Printf("Progress incremented: %v", cmd)
+		logMu.Unlock()
+		return m, tea.Batch(tickCmd(), cmd)
+
+	// FrameMsg is sent when the progress bar wants to animate itself
+	case progress.FrameMsg:
+		logMu.Lock()
+		logger.Printf("FrameMsg received: %v", msg)
+		logMu.Unlock()
+		progressModel, cmd := m.progress.Update(msg)
+		m.progress = progressModel.(progress.Model)
+		return m, cmd
+
 	}
 	switch m.viewState {
 	case MainView:
 		switch msg := msg.(type) {
-
-		case progress.FrameMsg:
-			progressModel, cmd := m.progress.Update(msg)
-			m.progress = progressModel.(progress.Model)
-			return m, cmd
-
-		case tickMsg:
-			if m.progress.Percent() == 1.0 {
-				m.viewState = SearchView
-				return m, nil
-			}
-			// Note that you can also use progress.Model.SetPercent to set the
-			// percentage value explicitly, too.
-			cmd := m.progress.IncrPercent(0.25)
-			return m, tea.Batch(tickCmd(), cmd)
 		case tea.KeyMsg:
 			switch msg.String() {
 			case "ctrl+c", "q":
@@ -124,6 +144,10 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, cmd
 		}
 	case ProgressView:
+		logMu.Lock()
+		logger.Printf("Recived ProgressView: %v", msg)
+		logMu.Unlock()
+
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
 			switch msg.String() {

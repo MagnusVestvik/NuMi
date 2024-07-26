@@ -46,15 +46,15 @@ func arrangeSearchResultTable(searchResult SearchResult) table.Model {
 		{Title: "Description", Width: 30},
 	}
 
-	rows := []table.Row{}
+	rows := []table.Row{make([]string, len(searchResult.PackageName))}
 	for i, name := range searchResult.PackageName {
-		rows = append(rows, table.Row{
+		rows[i] = table.Row{
 			strconv.Itoa(i + 1),
 			name,
 			searchResult.PackageVersion[i],
 			searchResult.PackageDescription[i],
 			searchResult.PackageDownloads[i],
-		})
+		}
 	}
 
 	t := table.New(
@@ -78,4 +78,9 @@ func arrangeSearchResultTable(searchResult SearchResult) table.Model {
 	t.SetStyles(s)
 
 	return t
+}
+
+func center(m model, s string) string {
+	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, s)
+
 }

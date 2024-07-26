@@ -40,7 +40,7 @@ func (m model) View() string {
 }
 
 func (m model) HelpView() string {
-	return "Help is coming soon!"
+	return center(m, "Help is coming soon!")
 }
 
 func (m model) MainView() string {
@@ -58,7 +58,7 @@ func (m model) MainView() string {
 		s += fmt.Sprintf("%s [%s] %s\n", cursor, checked, choice)
 	}
 	s += "\nPress q to quit.\n"
-	return s
+	return center(m, s)
 }
 func (m model) SearchView() string {
 	s := m.inputField.View() + "\n\n"
@@ -67,16 +67,21 @@ func (m model) SearchView() string {
 	} else {
 		s += baseStyle.Render(m.table.View()) + "\n"
 	}
-	return s
+	return center(m, s)
 }
 
 func (m model) ProgressView() string {
+	logMu.Lock()
+	logger.Printf("ProgressView rendering! ")
+	logMu.Unlock()
+
 	pad := strings.Repeat(" ", padding)
-	return "\n" +
+	pad += "\n" +
 		pad + m.progress.View() + "\n\n" +
 		pad + helpStyle("Press any key to quit")
+	return center(m, pad)
 }
 
 func (m model) ListInstalledPackagesView() string {
-	return "list of installed packages lol"
+	return center(m, "list of installed packages lol")
 }
