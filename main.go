@@ -27,7 +27,7 @@ func initialModel() model {
 	}
 	logger = log.New(io.MultiWriter(logFile, &logBuf), "", log.Ltime|log.Lshortfile)
 
-	ti := textinput.New() // TODO: this bish dont render
+	ti := textinput.New()
 	ti.Placeholder = "Search for packages"
 	ti.Focus()
 	ti.Width = 20

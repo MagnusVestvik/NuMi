@@ -8,10 +8,8 @@ import (
 )
 
 type SearchResult struct {
-	PackageName        []string
-	PackageVersion     []string
-	PackageDescription []string
-	PackageDownloads   []string
+	Result     []string
+	SearchTerm string
 }
 
 type tickMsg time.Time
@@ -46,10 +44,7 @@ func SearchPackagesCmd(args ...string) tea.Cmd {
 			logMu.Unlock()
 			return err
 		}
-		searchResult := SearchResult{PackageName: getNamesFromSearchResult(response),
-			PackageVersion:     getVersionsFromSearchResult(response),
-			PackageDescription: getDescriptionsFromSearchResult(response),
-			PackageDownloads:   getNumDownloadsFromSearchResult(response)}
+		searchResult := SearchResult{strings.Split(response, "--------------------"), args[0]}
 
 		logMu.Lock()
 		logger.Printf("SearchPackagesCmd result: %v", searchResult)
