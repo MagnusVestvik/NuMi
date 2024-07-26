@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/bubbles/progress"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
@@ -12,11 +13,25 @@ import (
 	"sync"
 )
 
+type item struct {
+	title string
+	desc  string
+}
+
+func (i item) Title() string       { return i.title }
+func (i item) Description() string { return i.desc }
+func (i item) FilterValue() string { return i.title }
+
 var (
-	initialChoices = []string{"List Packages In Project", "Search Packages", "Help", "Quit"}
-	logger         *log.Logger
-	logMu          sync.Mutex
-	logBuf         strings.Builder
+	initialChoices = []list.Item{
+		item{title: "Search Packages", desc: "Search the nuget library for packages"},
+		item{title: "List Packages", desc: "List all installed packages current project"},
+		item{title: "Help", desc: "Get help on how to use the application"},
+	}
+
+	logger *log.Logger
+	logMu  sync.Mutex
+	logBuf strings.Builder
 )
 
 func initialModel() model {
@@ -27,17 +42,20 @@ func initialModel() model {
 	}
 	logger = log.New(io.MultiWriter(logFile, &logBuf), "", log.Ltime|log.Lshortfile)
 
+	startViewList := list.New(initialChoices, list.NewDefaultDelegate(), 0, 0)
+	startViewList.Title = "Main Menu"
+
 	ti := textinput.New()
 	ti.Placeholder = "Search for packages"
 	ti.Focus()
 	ti.Width = 20
 
 	return model{
-		inputField:      ti,
-		choices:         initialChoices,
-		viewState:       MainView,
-		progress:        progress.New(progress.WithDefaultGradient()),
-		tableIsSelected: false,
+		inputField:       ti,
+		startOptionsList: startViewList,
+		viewState:        MainView,
+		progress:         progress.New(progress.WithDefaultGradient()),
+		tableIsSelected:  false,
 		// A map which indicates which choices are selected. We're using
 		// the  map like a mathematical set. The keys refer to the indexes
 		// of the `choices` slice, above.

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/charmbracelet/lipgloss"
 	"strings"
 )
@@ -9,6 +8,8 @@ import (
 var baseStyle = lipgloss.NewStyle().
 	BorderStyle(lipgloss.NormalBorder()).
 	BorderForeground(lipgloss.Color("240"))
+
+var listBaseStyle = lipgloss.NewStyle().Margin(1, 2)
 
 var helpStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("#626262")).Render
 
@@ -44,28 +45,14 @@ func (m model) HelpView() string {
 }
 
 func (m model) MainView() string {
-	s := ""
-	s += "What should we buy at the market?\n\n"
-	for i, choice := range m.choices {
-		cursor := " " // no cursor
-		if m.cursor == i {
-			cursor = ">" // cursor!
-		}
-		checked := " " // not selected
-		if _, ok := m.selected[i]; ok {
-			checked = "x" // selected!
-		}
-		s += fmt.Sprintf("%s [%s] %s\n", cursor, checked, choice)
-	}
-	s += "\nPress q to quit.\n"
-	return center(m, s)
+	return center(m, listBaseStyle.Render(m.startOptionsList.View()))
 }
 func (m model) SearchView() string {
 	s := m.inputField.View() + "\n\n"
-	if len(m.table.Rows()) == 0 {
+	if len(m.packageSearchTable.Rows()) == 0 {
 		s += "No results yet. Press Enter to search.\n"
 	} else {
-		s += baseStyle.Render(m.table.View()) + "\n"
+		s += baseStyle.Render(m.packageSearchTable.View()) + "\n"
 	}
 	return center(m, s)
 }
