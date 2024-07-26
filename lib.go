@@ -9,7 +9,7 @@ import (
 )
 
 func getNamesFromSearchResult(searchResult string) string {
-	re := regexp.MustCompile(`> (.*?) \|`) // TODO: finner ingen navn som matcher
+	re := regexp.MustCompile(`> (.*?) \|`)
 	matches := re.FindAllStringSubmatch(searchResult, -1)
 	logMu.Lock()
 	logger.Printf("Names matched: %v", matches[0][1])
