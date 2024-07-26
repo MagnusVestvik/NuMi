@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/charmbracelet/bubbles/progress"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 	"io"
@@ -30,14 +31,16 @@ func initialModel() model {
 	ti.Placeholder = "Search for packages"
 	ti.Focus()
 	ti.Width = 20
+
 	return model{
-		InputField: ti,
-		Choices:    initialChoices,
-		ViewState:  MainView,
+		inputField: ti,
+		choices:    initialChoices,
+		viewState:  MainView,
+		progress:   progress.New(progress.WithDefaultGradient()),
 		// A map which indicates which choices are selected. We're using
 		// the  map like a mathematical set. The keys refer to the indexes
 		// of the `choices` slice, above.
-		Selected: make(map[int]string),
+		selected: make(map[int]string),
 	}
 }
 

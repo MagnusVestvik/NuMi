@@ -4,6 +4,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"os/exec"
 	"strings"
+	"time"
 )
 
 type SearchResult struct {
@@ -12,6 +13,8 @@ type SearchResult struct {
 	PackageDescription []string
 	PackageDownloads   []string
 }
+
+type tickMsg time.Time
 
 func runNuGetCommand(args ...string) (string, error) {
 	cmd := exec.Command("nuget", args...)
@@ -53,6 +56,12 @@ func SearchPackagesCmd(args ...string) tea.Cmd {
 		logMu.Unlock()
 		return searchResult
 	}
+}
+
+func tickCmd() tea.Cmd {
+	return tea.Tick(time.Second*1, func(t time.Time) tea.Msg {
+		return tickMsg(t)
+	})
 }
 
 func InstallNugetPackage(packageName string) string {

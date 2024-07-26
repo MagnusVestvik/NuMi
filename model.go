@@ -1,22 +1,25 @@
 package main
 
 import (
+	"github.com/charmbracelet/bubbles/progress"
 	"github.com/charmbracelet/bubbles/table"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
+// TODO: create more models
 type model struct {
-	Table        table.Model
-	InputField   textinput.Model
-	Choices      []string
-	ViewState    int
-	Cursor       int
-	Selected     map[int]string
-	SearchTerm   string
+	table        table.Model
+	inputField   textinput.Model
+	choices      []string
+	viewState    int
+	cursor       int
+	selected     map[int]string
+	searchTerm   string
 	isInstalling bool
-	ShowLogs     bool
-	WindowSize   tea.WindowSizeMsg
+	showLogs     bool
+	windowSize   tea.WindowSizeMsg
+	progress     progress.Model
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -27,54 +30,70 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	switch msg := msg.(type) {
 	case SearchResult:
+		m.viewState = SearchView
 		logMu.Lock()
 		logger.Printf("Received SearchResult: %v", msg.PackageName)
 		logMu.Unlock()
-		m.Table = arrangeSearchResultTable(msg) // TODO: denne oppdaterer ikke table
+		m.table = arrangeSearchResultTable(msg) // TODO: denne oppdaterer ikke table
 		logMu.Lock()
 		logger.Printf("updated table: %v", msg)
 		logMu.Unlock()
-		m.Cursor = 0
+		m.cursor = 0
 		return m, cmd
 
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "ctrl+l":
-			m.ShowLogs = !m.ShowLogs
+			m.showLogs = !m.showLogs
 			return m, nil
 		}
 	}
-	switch m.ViewState {
+	switch m.viewState {
 	case MainView:
 		switch msg := msg.(type) {
+
+		case progress.FrameMsg:
+			progressModel, cmd := m.progress.Update(msg)
+			m.progress = progressModel.(progress.Model)
+			return m, cmd
+
+		case tickMsg:
+			if m.progress.Percent() == 1.0 {
+				m.viewState = SearchView
+				return m, nil
+			}
+			// Note that you can also use progress.Model.SetPercent to set the
+			// percentage value explicitly, too.
+			cmd := m.progress.IncrPercent(0.25)
+			return m, tea.Batch(tickCmd(), cmd)
 		case tea.KeyMsg:
 			switch msg.String() {
 			case "ctrl+c", "q":
 				return m, tea.Quit
 			case "up", "k":
-				if m.Cursor > 0 {
-					m.Cursor--
+				if m.cursor > 0 {
+					m.cursor--
 				}
 			case "down", "j":
-				if m.Cursor < len(m.Choices)-1 {
-					m.Cursor++
+				if m.cursor < len(m.choices)-1 {
+					m.cursor++
 				}
 			case "enter", " ":
-				_, ok := m.Selected[m.Cursor]
+				_, ok := m.selected[m.cursor]
 				if ok {
-					delete(m.Selected, m.Cursor)
+					delete(m.selected, m.cursor)
 				} else {
-					m.Selected[m.Cursor] = m.Choices[m.Cursor]
+					m.selected[m.cursor] = m.choices[m.cursor]
 				}
 
-				switch m.Choices[m.Cursor] {
+				switch m.choices[m.cursor] {
 				case "List Packages In Project":
-					m.ViewState = ListInstalledPackagesView
+					m.viewState = ListInstalledPackagesView
 				case "Search Packages":
-					m.ViewState = SearchView
-					m.Choices = []string{}
+					m.viewState = SearchView
+					m.choices = []string{}
 				case "Help":
-					m.ViewState = HelpView
+					m.viewState = HelpView
 				case "Quit":
 					return m, tea.Quit
 				}
@@ -88,19 +107,29 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "ctrl+c", "q":
 				return m, tea.Quit
 			case "up", "k":
-				if m.Cursor > 0 {
-					m.Cursor--
+				if m.cursor > 0 {
+					m.cursor--
 				}
 			case "down", "j":
-				if m.Cursor < len(m.Choices)-1 {
-					m.Cursor++
+				if m.cursor < len(m.choices)-1 {
+					m.cursor++
 				}
 			case "enter":
-				return m, SearchPackagesCmd(m.InputField.Value())
+				m.viewState = ProgressView
+				tickIncrCmd := m.progress.IncrPercent(0.25)
+				return m, tea.Batch(tickCmd(), tickIncrCmd, SearchPackagesCmd(m.inputField.Value()))
 			}
 			var cmd tea.Cmd
-			m.InputField, cmd = m.InputField.Update(msg)
+			m.inputField, cmd = m.inputField.Update(msg)
 			return m, cmd
+		}
+	case ProgressView:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q":
+				return m, tea.Quit
+			}
 		}
 
 	case ListInstalledPackagesView:
