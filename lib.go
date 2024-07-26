@@ -5,6 +5,7 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"regexp"
 	"strconv"
+	"strings"
 )
 
 func getNamesFromSearchResult(searchResult string) string {
@@ -47,39 +48,102 @@ func getDescriptionsFromSearchResult(searchResult string) string {
 	description := matches[0]
 	return description[1] // Returns what's inside the capture group
 }
-func arrangeSearchResultTable(searchResult SearchResult) table.Model {
-	columns := []table.Column{
-		{Title: "Number", Width: 10},
-		{Title: "Name", Width: 30},
-		{Title: "Version", Width: 10},
-		{Title: "Downloads", Width: 10},
-		{Title: "Description", Width: 120},
+
+func center(m model, s string) string {
+	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, s)
+
+}
+
+func wrapText(text string, width int) string {
+	words := strings.Fields(text)
+	if len(words) == 0 {
+		return ""
+	}
+	wrapped := words[0]
+	spaceLeft := width - len(wrapped)
+	for _, word := range words[1:] {
+		if len(word)+1 > spaceLeft {
+			wrapped += "\n" + word
+			spaceLeft = width - len(word)
+		} else {
+			wrapped += " " + word
+			spaceLeft -= 1 + len(word)
+		}
+	}
+	return wrapped
+}
+
+func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) table.Model {
+	if strings.Contains(searchResult.Result[1], "No results found") {
+		columns := []table.Column{
+			{Title: "Error", Width: availableWidth - 4}, // Subtract 4 for borders
+		}
+		rows := []table.Row{
+			{"No results found for " + searchResult.SearchTerm + ". Please try another search term."},
+		}
+		return table.New(
+			table.WithColumns(columns),
+			table.WithRows(rows),
+			table.WithFocused(true),
+		)
+	}
+
+	allColumns := []struct {
+		Title      string
+		GetContent func(string, int) string
+	}{
+		{"Number", func(pkg string, i int) string { return strconv.Itoa(i + 1) }},
+		{"Name", func(pkg string, _ int) string { return getNamesFromSearchResult(pkg) }},
+		{"Version", func(pkg string, _ int) string { return getVersionsFromSearchResult(pkg) }},
+		{"Downloads", func(pkg string, _ int) string { return getNumDownloadsFromSearchResult(pkg) }},
 	}
 
 	searchResult.Result = searchResult.Result[1:] // Remove the first element, which is a header
-	rows := make([]table.Row, len(searchResult.Result))
+
+	maxWidths := make([]int, len(allColumns))
+	for i, col := range allColumns {
+		maxWidths[i] = len(col.Title)
+	}
+
+	rows := make([]table.Row, 0, len(searchResult.Result))
 	for i, pkg := range searchResult.Result {
 		if len(pkg) <= 2 { // fixes issue where last line is empty
 			continue
 		}
-		logMu.Lock()
-		logger.Printf("Pkg in searchResult: %v", pkg)
-		logMu.Unlock()
-		rows[i] = table.Row{
-			strconv.Itoa(i + 1),
-			getNamesFromSearchResult(pkg),
-			getVersionsFromSearchResult(pkg),
-			getNumDownloadsFromSearchResult(pkg),
-			getDescriptionsFromSearchResult(pkg),
+		row := make(table.Row, len(allColumns))
+		for j, col := range allColumns {
+			content := col.GetContent(pkg, i)
+			row[j] = content
+			if len(content) > maxWidths[j] {
+				maxWidths[j] = len(content)
+			}
 		}
+		rows = append(rows, row)
+	}
+
+	// Determine which columns to include based on available width
+	columns := make([]table.Column, 0)
+	usedWidth := 0
+	for i, col := range allColumns {
+		columnWidth := maxWidths[i] + 2               // Add some padding
+		if usedWidth+columnWidth > availableWidth-4 { // Subtract 4 for borders
+			break
+		}
+		columns = append(columns, table.Column{Title: col.Title, Width: columnWidth})
+		usedWidth += columnWidth
+	}
+
+	// Adjust rows to match selected columns
+	for i, row := range rows {
+		rows[i] = row[:len(columns)]
 	}
 
 	t := table.New(
 		table.WithColumns(columns),
 		table.WithRows(rows),
 		table.WithFocused(true),
-		table.WithHeight(40),
-		table.WithWidth(190),
+		table.WithHeight(len(rows)+2),
+		table.WithWidth(usedWidth+4),
 	)
 
 	s := table.DefaultStyles()
@@ -95,9 +159,4 @@ func arrangeSearchResultTable(searchResult SearchResult) table.Model {
 	t.SetStyles(s)
 
 	return t
-}
-
-func center(m model, s string) string {
-	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, s)
-
 }

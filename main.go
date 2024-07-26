@@ -33,10 +33,11 @@ func initialModel() model {
 	ti.Width = 20
 
 	return model{
-		inputField: ti,
-		choices:    initialChoices,
-		viewState:  MainView,
-		progress:   progress.New(progress.WithDefaultGradient()),
+		inputField:      ti,
+		choices:         initialChoices,
+		viewState:       MainView,
+		progress:        progress.New(progress.WithDefaultGradient()),
+		tableIsSelected: false,
 		// A map which indicates which choices are selected. We're using
 		// the  map like a mathematical set. The keys refer to the indexes
 		// of the `choices` slice, above.

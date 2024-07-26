@@ -9,19 +9,20 @@ import (
 
 // TODO: create more models
 type model struct {
-	table        table.Model
-	inputField   textinput.Model
-	choices      []string
-	viewState    int
-	cursor       int
-	selected     map[int]string
-	searchTerm   string
-	isInstalling bool
-	showLogs     bool
-	windowSize   tea.WindowSizeMsg
-	progress     progress.Model
-	width        int
-	height       int
+	table           table.Model
+	tableIsSelected bool
+	inputField      textinput.Model
+	choices         []string
+	viewState       int
+	cursor          int
+	selected        map[int]string
+	searchTerm      string
+	isInstalling    bool
+	showLogs        bool
+	windowSize      tea.WindowSizeMsg
+	progress        progress.Model
+	width           int
+	height          int
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -33,7 +34,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case SearchResult:
 		m.viewState = SearchView
-		m.table = arrangeSearchResultTable(msg) // TODO: denne oppdaterer ikke table
+		m.table = arrangeSearchResultTable(msg, m.width) // TODO: denne oppdaterer ikke table
 		logMu.Lock()
 		logger.Printf("updated table: %v", msg)
 		logMu.Unlock()
@@ -124,6 +125,12 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
 			switch msg.String() {
+			case "tab":
+				logMu.Lock()
+				logger.Printf("Tab key was pressed and resulted in tableIsSelected: %v", m.tableIsSelected)
+				logMu.Unlock()
+
+				m.tableIsSelected = !m.tableIsSelected
 			case "ctrl+c", "q":
 				return m, tea.Quit
 			case "up", "k":
@@ -131,7 +138,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.cursor--
 				}
 			case "down", "j":
-				if m.cursor < len(m.choices)-1 {
+				if m.cursor < len(m.table.Rows())-1 {
 					m.cursor++
 				}
 			case "enter":
@@ -140,7 +147,14 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				return m, tea.Batch(tickCmd(), tickIncrCmd, SearchPackagesCmd(m.inputField.Value()))
 			}
 			var cmd tea.Cmd
-			m.inputField, cmd = m.inputField.Update(msg)
+			if !m.tableIsSelected {
+				m.inputField, cmd = m.inputField.Update(msg)
+			} else {
+				m.table.SetCursor(m.cursor)
+				logMu.Lock()
+				logger.Printf("Table moved cursor to position: %v", m.table.Cursor())
+				logMu.Unlock()
+			}
 			return m, cmd
 		}
 	case ProgressView:
