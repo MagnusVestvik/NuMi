@@ -2,6 +2,7 @@ package refactor
 
 import (
 	"github.com/charmbracelet/bubbles/list"
+	"github.com/charmbracelet/lipgloss"
 	"io"
 	"log"
 	"os"
@@ -33,10 +34,14 @@ func (i item) Description() string { return i.desc }
 func (i item) FilterValue() string { return i.title }
 
 func getStartViewChoices() []list.Item {
-
 	return []list.Item{
 		item{title: "Search Packages", desc: "Search the nuget library for packages"},
 		item{title: "List Packages", desc: "List all installed packages in current project"},
 		item{title: "Help", desc: "Get help on how to use the application"},
 	}
+}
+
+func center(m ViewModel, s string) string {
+	return lipgloss.Place(m.GetWidth(), m.GetHeight(), lipgloss.Center, lipgloss.Center, s)
+
 }
