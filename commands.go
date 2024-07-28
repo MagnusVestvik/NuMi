@@ -2,10 +2,11 @@ package main
 
 import (
 	tea "github.com/charmbracelet/bubbletea"
-	"os/exec"
 	"strings"
 	"time"
 )
+
+type ViewState struct{ state int }
 
 type SearchResult struct {
 	Result     []string
@@ -13,21 +14,6 @@ type SearchResult struct {
 }
 
 type tickMsg time.Time
-
-func runNuGetCommand(args ...string) (string, error) {
-	cmd := exec.Command("nuget", args...)
-	logMu.Lock()
-	logger.Printf("Running command: %v", cmd)
-	logMu.Unlock()
-	output, err := cmd.CombinedOutput()
-	logMu.Lock()
-	logger.Printf("Command output: %v", string(output))
-	if err != nil {
-		logger.Printf("Command error: %v", err)
-	}
-	logMu.Unlock()
-	return string(output), err
-}
 
 func SearchPackagesCmd(args ...string) tea.Cmd {
 	return func() tea.Msg {
@@ -57,30 +43,4 @@ func tickCmd() tea.Cmd {
 	return tea.Tick(time.Second*1, func(t time.Time) tea.Msg {
 		return tickMsg(t)
 	})
-}
-
-func InstallNugetPackage(packageName string) string {
-	result, err := runNuGetCommand("install", packageName)
-	if err != nil {
-		return err.Error()
-	}
-	return result
-}
-
-func UninstallNugetPackage(packageName string) tea.Cmd {
-	return func() tea.Msg {
-		result, err := runNuGetCommand("uninstall", packageName)
-		if err != nil {
-			return err
-		}
-		return result
-	}
-}
-
-func SearchPackages(args ...string) ([]string, error) {
-	results, err := runNuGetCommand(args...)
-	if err != nil {
-		return nil, err
-	}
-	return strings.Split(results, "\n"), nil
 }

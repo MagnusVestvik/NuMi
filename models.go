@@ -1,4 +1,4 @@
-package refactor
+package main
 
 import (
 	"github.com/charmbracelet/bubbles/list"
@@ -18,6 +18,8 @@ type ViewModel interface {
 
 type SearchViewModel struct {
 	packageSearchTable table.Model
+	selectSearchTable  bool
+	cursor             int
 	inputField         textinput.Model
 	progressBar        progress.Model
 	style              lipgloss.Style
@@ -48,11 +50,6 @@ type model struct { // TODO: denne skal byttes ut med main view model, sålenge 
 	width      int
 }
 
-func (m model) Init() tea.Cmd {
-	// Just return `nil`, which means "no I/O right now, please."
-	return nil
-}
-
 func initSearchViewModel() SearchViewModel {
 	ti := textinput.New()
 	ti.Placeholder = "Search for packages"
@@ -62,24 +59,28 @@ func initSearchViewModel() SearchViewModel {
 		BorderStyle(lipgloss.NormalBorder()).
 		BorderForeground(lipgloss.Color("240"))
 
-	return SearchViewModel{
+	searchViewModel := SearchViewModel{
 		inputField:  textinput.New(),
 		progressBar: progress.New(),
 		style:       baseStyle,
 	}
+	searchViewModel.SetSize(80, 24)
 
+	return searchViewModel
 }
 
 func initMainViewModel() MainViewModel {
-	choices := getStartViewChoices()
+	choices := getMainViewChoices()
 	startViewList := list.New(choices, list.NewDefaultDelegate(), 0, 0)
 	startViewList.Title = "Main Menu"
 	listBaseStyle := lipgloss.NewStyle().Margin(1, 2)
-
-	return MainViewModel{
+	mainViewModel := MainViewModel{
 		viewList: startViewList,
 		style:    listBaseStyle,
 	}
+	mainViewModel.SetSize(80, 24)
+
+	return mainViewModel
 }
 
 func initListPackageViewModel() ListPackageViewModel {
@@ -101,3 +102,24 @@ func (mvm MainViewModel) GetWidth() int { return mvm.width }
 func (lvm ListPackageViewModel) GetWidth() int { return lvm.width }
 
 func (m model) GetWidth() int { return m.width }
+
+func (svm SearchViewModel) Init() tea.Cmd { return nil }
+
+func (mvm MainViewModel) Init() tea.Cmd { return nil }
+
+func (lvm ListPackageViewModel) Init() tea.Cmd { return nil }
+
+func (m model) Init() tea.Cmd { return nil }
+
+func (mvm *MainViewModel) SetSize(width, height int) {
+	mvm.width = width
+	mvm.height = height
+	mvm.viewList.SetSize(width-4, height-4) // Adjust for margins
+}
+
+func (svm *SearchViewModel) SetSize(width, height int) {
+	svm.width = width
+	svm.height = height
+	svm.inputField.Width = width - 4
+	svm.progressBar.Width = width - 4
+}
