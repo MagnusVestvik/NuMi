@@ -17,7 +17,3 @@ func (svm SearchViewModel) View() string {
 func (lvm ListPackageViewModel) View() string {
 	return "" // TODO: Implement
 }
-
-func (m model) View() string {
-	return "" // TODO: Implement
-}

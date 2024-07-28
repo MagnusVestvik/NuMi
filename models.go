@@ -40,16 +40,6 @@ type ListPackageViewModel struct {
 	style  lipgloss.Style
 }
 
-type model struct { // TODO: denne skal byttes ut med main view model, sålenge alle modeller implementerer tea.model kan man bare bytte
-	cursor     int
-	showLogs   bool
-	windowSize tea.WindowSizeMsg
-	viewState  int
-	views      []ViewModel
-	height     int
-	width      int
-}
-
 func initSearchViewModel() SearchViewModel {
 	ti := textinput.New()
 	ti.Placeholder = "Search for packages"
@@ -60,9 +50,10 @@ func initSearchViewModel() SearchViewModel {
 		BorderForeground(lipgloss.Color("240"))
 
 	searchViewModel := SearchViewModel{
-		inputField:  textinput.New(),
-		progressBar: progress.New(),
-		style:       baseStyle,
+		inputField:        ti,
+		progressBar:       progress.New(progress.WithDefaultGradient()),
+		style:             baseStyle,
+		selectSearchTable: false,
 	}
 	searchViewModel.SetSize(80, 24)
 
@@ -93,23 +84,17 @@ func (mvm MainViewModel) GetHeight() int { return mvm.height }
 
 func (lvm ListPackageViewModel) GetHeight() int { return lvm.height }
 
-func (m model) GetHeight() int { return m.height }
-
 func (svm SearchViewModel) GetWidth() int { return svm.width }
 
 func (mvm MainViewModel) GetWidth() int { return mvm.width }
 
 func (lvm ListPackageViewModel) GetWidth() int { return lvm.width }
 
-func (m model) GetWidth() int { return m.width }
-
 func (svm SearchViewModel) Init() tea.Cmd { return nil }
 
 func (mvm MainViewModel) Init() tea.Cmd { return nil }
 
 func (lvm ListPackageViewModel) Init() tea.Cmd { return nil }
-
-func (m model) Init() tea.Cmd { return nil }
 
 func (mvm *MainViewModel) SetSize(width, height int) {
 	mvm.width = width

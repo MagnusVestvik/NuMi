@@ -5,6 +5,9 @@ import (
 )
 
 func (mvm MainViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	logMu.Lock()
+	logger.Printf("Received message: %T", msg)
+	logMu.Unlock()
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		mvm.SetSize(msg.Width, msg.Height)
@@ -13,7 +16,7 @@ func (mvm MainViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg.String() {
 		case "enter":
 			logMu.Lock()
-			logger.Printf("Enter key was pressed and resulted in index: %v", mvm.viewList.Index())
+			logger.Printf("Enter key was pressed and will now try to change to model: %v", mvm.viewList.Index())
 			logMu.Unlock()
 			newModel, err := ChangeViewState(mvm.viewList.Index() + 1) // pluss one because idx 0 is mainview
 			if err != nil {
@@ -22,6 +25,9 @@ func (mvm MainViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				logMu.Unlock()
 				return mvm, nil
 			}
+			logMu.Lock()
+			logger.Printf("Succesffuly change viewmodel to model number: %v", mvm.viewList.Index())
+			logMu.Unlock()
 			return newModel, nil
 		}
 		var cmd tea.Cmd
@@ -32,9 +38,25 @@ func (mvm MainViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	logMu.Lock()
+	logger.Printf("Received message: %T", msg)
+	logMu.Unlock()
 	switch msg := msg.(type) {
+
 	case tea.WindowSizeMsg:
 		svm.SetSize(msg.Width, msg.Height)
+		logMu.Lock()
+		logger.Printf("Changed height to: %v", svm.GetHeight())
+		logger.Printf("Changed width to: %v", svm.GetWidth())
+		logMu.Unlock()
+		return svm, nil
+
+	case SearchResult:
+		svm.packageSearchTable = arrangeSearchResultTable(msg, svm.width) // TODO: denne oppdaterer ikke table
+		logMu.Lock()
+		logger.Printf("updated table: %v", msg)
+		logMu.Unlock()
+		svm.cursor = 0
 		return svm, nil
 
 	case tea.KeyMsg:
@@ -66,6 +88,9 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				svm.cursor++
 			}
 		case "enter":
+			logMu.Lock()
+			logger.Printf("Serching for package with name of %v", svm.inputField.Value())
+			logMu.Unlock()
 			tickIncrCmd := svm.progressBar.IncrPercent(0.25)
 			return svm, tea.Batch(tickCmd(), tickIncrCmd, SearchPackagesCmd(svm.inputField.Value()))
 		}
