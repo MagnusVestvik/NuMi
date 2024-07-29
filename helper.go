@@ -39,12 +39,14 @@ func (i item) Title() string       { return i.title }
 func (i item) Description() string { return i.desc }
 func (i item) FilterValue() string { return i.title }
 
-func getMainViewChoices() []list.Item {
-	return []list.Item{
-		item{title: "Search Packages", desc: "Search the nuget library for packages"},
-		item{title: "List Packages", desc: "List all installed packages in current project"},
-		item{title: "Help", desc: "Get help on how to use the application"},
+func ChangeViewState(viewState int) (tea.Model, error) {
+	switch viewState {
+	case MainViewState:
+		return initListPackageViewModel(), nil
+	case SearchViewState:
+		return initSearchViewModel(), nil
 	}
+	return nil, errors.New("Invalid view state selected with viewState: " + string(viewState)) // TODO: fix this to not return a string of runes but rather a string of the actuall number
 }
 
 func runNuGetCommand(args ...string) (string, error) {
@@ -62,20 +64,17 @@ func runNuGetCommand(args ...string) (string, error) {
 	return string(output), err
 }
 
-func ChangeViewState(viewState int) (tea.Model, error) {
-	switch viewState {
-	case MainViewState:
-		return initListPackageViewModel(), nil
-	case SearchViewState:
-		return initSearchViewModel(), nil
+func getMainViewChoices() []list.Item {
+	return []list.Item{
+		item{title: "Search Packages", desc: "Search the nuget library for packages"},
+		item{title: "List Packages", desc: "List all installed packages in current project"},
+		item{title: "Help", desc: "Get help on how to use the application"},
 	}
-	return nil, errors.New("Invalid view state selected with viewState: " + string(viewState)) // TODO: fix this to not return a string of runes but rather a string of the actuall number
 }
-
-// TODO: make general function for string search with regex
 func getNamesFromSearchResult(searchResult string) string {
 	re := regexp.MustCompile(`> (.*?) \|`)
 	matches := re.FindAllStringSubmatch(searchResult, -1)
+
 	logMu.Lock()
 	logger.Printf("Names matched: %v", matches[0][1])
 	logMu.Unlock()
@@ -87,6 +86,7 @@ func getNamesFromSearchResult(searchResult string) string {
 func getVersionsFromSearchResult(searchResult string) string {
 	re := regexp.MustCompile(`\| (.*) \|`)
 	matches := re.FindAllStringSubmatch(searchResult, -1)
+
 	logMu.Lock()
 	logger.Printf("Versions matched: %v", matches[0][1])
 	logMu.Unlock()
@@ -97,6 +97,7 @@ func getVersionsFromSearchResult(searchResult string) string {
 func getNumDownloadsFromSearchResult(searchResult string) string {
 	re := regexp.MustCompile(`Downloads: (.*)`)
 	matches := re.FindAllStringSubmatch(searchResult, -1)
+
 	logMu.Lock()
 	logger.Printf("Num Downloads matched: %v", matches[0][1])
 	logMu.Unlock()
@@ -107,11 +108,18 @@ func getNumDownloadsFromSearchResult(searchResult string) string {
 func getDescriptionsFromSearchResult(searchResult string) string {
 	re := regexp.MustCompile(`>.*\n(.*)`)
 	matches := re.FindAllStringSubmatch(searchResult, -1)
+
 	logMu.Lock()
 	logger.Printf("Description matched: %v", matches[0][1])
 	logMu.Unlock()
 	description := matches[0]
 	return description[1] // Returns what's inside the capture group
+}
+
+func stringContainsChars(s string) bool {
+	re := regexp.MustCompile(`[a-zA-Z0-9]`)
+	matches := re.FindAllStringSubmatch(s, -1)
+	return len(matches) > 0
 }
 
 func center(m ViewModel, s string) string {
@@ -138,6 +146,7 @@ func wrapText(text string, width int) string {
 	return wrapped
 }
 
+// TODO: Rewrite
 func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) table.Model {
 	if strings.Contains(searchResult.Result[1], "No results found") {
 		columns := []table.Column{
@@ -153,62 +162,44 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 		)
 	}
 
-	allColumns := []struct {
-		Title      string
-		GetContent func(string, int) string
-	}{
-		{"Number", func(pkg string, i int) string { return strconv.Itoa(i + 1) }},
-		{"Name", func(pkg string, _ int) string { return getNamesFromSearchResult(pkg) }},
-		{"Version", func(pkg string, _ int) string { return getVersionsFromSearchResult(pkg) }},
-		{"Downloads", func(pkg string, _ int) string { return getNumDownloadsFromSearchResult(pkg) }},
+	columns := []table.Column{
+		{Title: "Number", Width: 10},
+		{Title: "Name", Width: 20},
+		{Title: "Version", Width: 10},
+		{Title: "Downloads", Width: 10},
 	}
 
-	searchResult.Result = searchResult.Result[1:] // Remove the first element, which is a header
+	searchResult.Result = searchResult.Result[1:] // Remove the first element and the newline at the end
+	rows := make([]table.Row, len(searchResult.Result))
+	logMu.Lock()
+	logger.Printf("length of rows %v", len(rows))
+	logger.Printf("length of searchResult.Result %v", len(searchResult.Result))
+	logMu.Unlock()
 
-	maxWidths := make([]int, len(allColumns))
-	for i, col := range allColumns {
-		maxWidths[i] = len(col.Title)
-	}
-
-	rows := make([]table.Row, 0, len(searchResult.Result))
 	for i, pkg := range searchResult.Result {
-		if len(pkg) <= 2 { // fixes issue where last line is empty
+		if !stringContainsChars(pkg) {
 			continue
 		}
-		row := make(table.Row, len(allColumns))
-		for j, col := range allColumns {
-			content := col.GetContent(pkg, i)
-			row[j] = content
-			if len(content) > maxWidths[j] {
-				maxWidths[j] = len(content)
-			}
+		logMu.Lock()
+		logger.Printf("currently at i %v", i)
+		logger.Printf("currently at pkg %v", pkg)
+		logMu.Unlock()
+		rows[i] = table.Row{
+			strconv.Itoa(i + 1),
+			getNamesFromSearchResult(pkg),
+			getVersionsFromSearchResult(pkg),
+			getNumDownloadsFromSearchResult(pkg),
 		}
-		rows = append(rows, row)
+
 	}
 
-	// Determine which columns to include based on available width
-	columns := make([]table.Column, 0)
-	usedWidth := 0
-	for i, col := range allColumns {
-		columnWidth := maxWidths[i] + 2               // Add some padding
-		if usedWidth+columnWidth > availableWidth-4 { // Subtract 4 for borders
-			break
-		}
-		columns = append(columns, table.Column{Title: col.Title, Width: columnWidth})
-		usedWidth += columnWidth
-	}
-
-	// Adjust rows to match selected columns
-	for i, row := range rows {
-		rows[i] = row[:len(columns)]
-	}
-
+	maxWidth := FindLargestStringInSlice(searchResult.Result)
 	t := table.New(
 		table.WithColumns(columns),
 		table.WithRows(rows),
 		table.WithFocused(true),
 		table.WithHeight(len(rows)+2),
-		table.WithWidth(usedWidth+4),
+		table.WithWidth(maxWidth+4),
 	)
 
 	s := table.DefaultStyles()
@@ -224,4 +215,14 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 	t.SetStyles(s)
 
 	return t
+}
+
+func FindLargestStringInSlice(s []string) int {
+	max := 0
+	for _, str := range s {
+		if len(str) > max {
+			max = len(str)
+		}
+	}
+	return max
 }

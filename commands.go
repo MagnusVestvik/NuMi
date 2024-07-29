@@ -32,9 +32,6 @@ func SearchPackagesCmd(args ...string) tea.Cmd {
 		}
 		searchResult := SearchResult{strings.Split(response, "--------------------"), args[0]}
 
-		logMu.Lock()
-		logger.Printf("SearchPackagesCmd result: %v", searchResult)
-		logMu.Unlock()
 		return searchResult
 	}
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/charmbracelet/bubbles/progress"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
@@ -51,8 +52,28 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		logMu.Unlock()
 		return svm, nil
 
+	case tickMsg:
+		logMu.Lock()
+		logger.Printf("TickMsg received: %v", msg)
+		logMu.Unlock()
+		if svm.progressBar.Percent() == 1.0 {
+			svm.isSearching = false
+			return svm, svm.progressBar.SetPercent(0) // TODO: reset the view to table view
+		}
+		cmd := svm.progressBar.IncrPercent(0.25)
+		logMu.Lock()
+		logger.Printf("Progress incremented: %v", svm.progressBar.Percent())
+		logger.Printf("Progress is currently at value: %v", svm.progressBar.View())
+		logMu.Unlock()
+		return svm, tea.Batch(tickCmd(), cmd)
+
+	case progress.FrameMsg:
+		progressModel, cmd := svm.progressBar.Update(msg)
+		svm.progressBar = progressModel.(progress.Model)
+		return svm, cmd
+
 	case SearchResult:
-		svm.packageSearchTable = arrangeSearchResultTable(msg, svm.width) // TODO: denne oppdaterer ikke table
+		svm.packageSearchTable = arrangeSearchResultTable(msg, svm.width)
 		logMu.Lock()
 		logger.Printf("updated table: %v", msg)
 		logMu.Unlock()
@@ -91,6 +112,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			logMu.Lock()
 			logger.Printf("Serching for package with name of %v", svm.inputField.Value())
 			logMu.Unlock()
+			svm.isSearching = true
 			tickIncrCmd := svm.progressBar.IncrPercent(0.25)
 			return svm, tea.Batch(tickCmd(), tickIncrCmd, SearchPackagesCmd(svm.inputField.Value()))
 		}

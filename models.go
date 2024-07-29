@@ -19,9 +19,10 @@ type ViewModel interface {
 type SearchViewModel struct {
 	packageSearchTable table.Model
 	selectSearchTable  bool
+	isSearching        bool
 	cursor             int
 	inputField         textinput.Model
-	progressBar        progress.Model
+	progressBar        progress.Model // TODO: implementer som egen modell
 	style              lipgloss.Style
 	height             int
 	width              int
@@ -105,6 +106,5 @@ func (mvm *MainViewModel) SetSize(width, height int) {
 func (svm *SearchViewModel) SetSize(width, height int) {
 	svm.width = width
 	svm.height = height
-	svm.inputField.Width = width - 4
-	svm.progressBar.Width = width - 4
+	svm.progressBar.Width = width
 }
