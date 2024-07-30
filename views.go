@@ -5,7 +5,7 @@ import (
 )
 
 func (mvm MainViewModel) View() string {
-	return center(mvm, mvm.style.Render(mvm.viewList.View()))
+	return center(mvm.BaseModel, mvm.style.Render(mvm.viewList.View()))
 }
 
 func (svm SearchViewModel) View() string {
@@ -20,7 +20,7 @@ func (svm SearchViewModel) View() string {
 		pad += "\n" +
 			pad + svm.progressBar.View() + "\n\n"
 
-		return center(svm, pad)
+		return center(svm.BaseModel, pad)
 	}
 
 	if len(svm.packageSearchTable.Rows()) == 0 {
@@ -31,7 +31,7 @@ func (svm SearchViewModel) View() string {
 		logMu.Unlock()
 		s += svm.style.Render(svm.packageSearchTable.View()) + "\n"
 	}
-	return center(svm, s)
+	return center(svm.BaseModel, s)
 }
 
 func (lvm ListPackageViewModel) View() string {

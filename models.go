@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/bubbles/progress"
 	"github.com/charmbracelet/bubbles/table"
@@ -10,35 +11,43 @@ import (
 )
 
 type ViewModel interface {
-	GetHeight() int
-	GetWidth() int
 	View() string
 	Update(tea.Msg) (tea.Model, tea.Cmd)
 }
 
+type GlobalKeyMap struct {
+	Up    key.Binding
+	Down  key.Binding
+	Left  key.Binding
+	Right key.Binding
+	Help  key.Binding
+	Quit  key.Binding
+}
+
+type BaseModel struct {
+	height int
+	width  int
+	keys   GlobalKeyMap
+	style  lipgloss.Style
+}
+
 type SearchViewModel struct {
+	BaseModel
 	packageSearchTable table.Model
 	selectSearchTable  bool
 	isSearching        bool
 	cursor             int
 	inputField         textinput.Model
-	progressBar        progress.Model // TODO: implementer som egen modell
-	style              lipgloss.Style
-	height             int
-	width              int
+	progressBar        progress.Model
 }
 
 type MainViewModel struct {
+	BaseModel
 	viewList list.Model
-	height   int
-	width    int
-	style    lipgloss.Style
 }
 
 type ListPackageViewModel struct {
-	height int
-	width  int
-	style  lipgloss.Style
+	BaseModel
 }
 
 func initSearchViewModel(width int, height int) SearchViewModel {
@@ -49,11 +58,16 @@ func initSearchViewModel(width int, height int) SearchViewModel {
 	baseStyle := lipgloss.NewStyle().
 		BorderStyle(lipgloss.NormalBorder()).
 		BorderForeground(lipgloss.Color("240"))
+	baseViewModel := BaseModel{
+		height: height,
+		width:  width,
+		style:  baseStyle,
+	}
 
 	searchViewModel := SearchViewModel{
+		BaseModel:         baseViewModel,
 		inputField:        ti,
 		progressBar:       progress.New(progress.WithDefaultGradient()),
-		style:             baseStyle,
 		selectSearchTable: false,
 	}
 	searchViewModel.SetSize(width, height)
@@ -66,9 +80,14 @@ func initMainViewModel(width int, height int) MainViewModel {
 	startViewList := list.New(choices, list.NewDefaultDelegate(), 0, 0)
 	startViewList.Title = "Main Menu"
 	listBaseStyle := lipgloss.NewStyle().Margin(1, 2)
+	baseViewModel := BaseModel{
+		height: height,
+		width:  width,
+		style:  listBaseStyle,
+	}
 	mainViewModel := MainViewModel{
-		viewList: startViewList,
-		style:    listBaseStyle,
+		BaseModel: baseViewModel,
+		viewList:  startViewList,
 	}
 	mainViewModel.SetSize(width, height)
 
@@ -78,18 +97,6 @@ func initMainViewModel(width int, height int) MainViewModel {
 func initListPackageViewModel() ListPackageViewModel {
 	return ListPackageViewModel{}
 }
-
-func (svm SearchViewModel) GetHeight() int { return svm.height }
-
-func (mvm MainViewModel) GetHeight() int { return mvm.height }
-
-func (lvm ListPackageViewModel) GetHeight() int { return lvm.height }
-
-func (svm SearchViewModel) GetWidth() int { return svm.width }
-
-func (mvm MainViewModel) GetWidth() int { return mvm.width }
-
-func (lvm ListPackageViewModel) GetWidth() int { return lvm.width }
 
 func (svm SearchViewModel) Init() tea.Cmd { return nil }
 

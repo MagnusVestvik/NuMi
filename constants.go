@@ -13,7 +13,7 @@ const (
 )
 
 var (
-	HELPER_KEYS = keys{
+	GLOBAL_HELPER_KEYS = keys{
 		navigationKeys: []key.Binding{
 			key.NewBinding(
 				key.WithKeys("up", "k"),

@@ -128,8 +128,8 @@ func stringContainsChars(s string) bool {
 	return len(matches) > 0
 }
 
-func center(m ViewModel, s string) string {
-	return lipgloss.Place(m.GetWidth(), m.GetHeight(), lipgloss.Center, lipgloss.Center, s)
+func center(m BaseModel, s string) string {
+	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, s)
 
 }
 
