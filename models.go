@@ -41,7 +41,7 @@ type ListPackageViewModel struct {
 	style  lipgloss.Style
 }
 
-func initSearchViewModel() SearchViewModel {
+func initSearchViewModel(width int, height int) SearchViewModel {
 	ti := textinput.New()
 	ti.Placeholder = "Search for packages"
 	ti.Focus()
@@ -56,12 +56,12 @@ func initSearchViewModel() SearchViewModel {
 		style:             baseStyle,
 		selectSearchTable: false,
 	}
-	searchViewModel.SetSize(80, 24)
+	searchViewModel.SetSize(width, height)
 
 	return searchViewModel
 }
 
-func initMainViewModel() MainViewModel {
+func initMainViewModel(width int, height int) MainViewModel {
 	choices := getMainViewChoices()
 	startViewList := list.New(choices, list.NewDefaultDelegate(), 0, 0)
 	startViewList.Title = "Main Menu"
@@ -70,7 +70,7 @@ func initMainViewModel() MainViewModel {
 		viewList: startViewList,
 		style:    listBaseStyle,
 	}
-	mainViewModel.SetSize(80, 24)
+	mainViewModel.SetSize(width, height)
 
 	return mainViewModel
 }
@@ -106,5 +106,5 @@ func (mvm *MainViewModel) SetSize(width, height int) {
 func (svm *SearchViewModel) SetSize(width, height int) {
 	svm.width = width
 	svm.height = height
-	svm.progressBar.Width = width
+	svm.progressBar.Width = width - 4 // Adjust for margins
 }

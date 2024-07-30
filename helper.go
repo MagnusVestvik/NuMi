@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
@@ -11,7 +12,6 @@ import (
 	"os"
 	"os/exec"
 	"regexp"
-	"strconv"
 	"strings"
 	"sync"
 )
@@ -21,6 +21,12 @@ var (
 	logMu  sync.Mutex
 	logBuf strings.Builder
 )
+
+type keys struct {
+	navigationKeys []key.Binding // navigation keys
+	actionKeys     []key.Binding // action keys
+	helpKeys       []key.Binding // help key
+}
 
 func initLogger() {
 	logFile, err := os.OpenFile("app.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
@@ -39,12 +45,12 @@ func (i item) Title() string       { return i.title }
 func (i item) Description() string { return i.desc }
 func (i item) FilterValue() string { return i.title }
 
-func ChangeViewState(viewState int) (tea.Model, error) {
+func ChangeViewState(viewState int, width int, height int) (tea.Model, error) {
 	switch viewState {
 	case MainViewState:
-		return initListPackageViewModel(), nil
+		return initMainViewModel(width, height), nil
 	case SearchViewState:
-		return initSearchViewModel(), nil
+		return initSearchViewModel(width, height), nil
 	}
 	return nil, errors.New("Invalid view state selected with viewState: " + string(viewState)) // TODO: fix this to not return a string of runes but rather a string of the actuall number
 }
@@ -162,13 +168,6 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 		)
 	}
 
-	columns := []table.Column{
-		{Title: "Number", Width: 10},
-		{Title: "Name", Width: 20},
-		{Title: "Version", Width: 10},
-		{Title: "Downloads", Width: 10},
-	}
-
 	searchResult.Result = searchResult.Result[1:] // Remove the first element and the newline at the end
 	rows := make([]table.Row, len(searchResult.Result))
 	logMu.Lock()
@@ -176,6 +175,7 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 	logger.Printf("length of searchResult.Result %v", len(searchResult.Result))
 	logMu.Unlock()
 
+	rowContentWidth := make(map[string]int)
 	for i, pkg := range searchResult.Result {
 		if !stringContainsChars(pkg) {
 			continue
@@ -184,22 +184,28 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 		logger.Printf("currently at i %v", i)
 		logger.Printf("currently at pkg %v", pkg)
 		logMu.Unlock()
-		rows[i] = table.Row{
-			strconv.Itoa(i + 1),
-			getNamesFromSearchResult(pkg),
-			getVersionsFromSearchResult(pkg),
-			getNumDownloadsFromSearchResult(pkg),
-		}
 
+		name := getNamesFromSearchResult(pkg)
+		version := getVersionsFromSearchResult(pkg)
+		downloads := getNumDownloadsFromSearchResult(pkg)
+		rows[i] = table.Row{
+			name,
+			version,
+			downloads,
+		}
+		updateRowContentWidth(&rowContentWidth, name, version, downloads)
 	}
 
-	maxWidth := FindLargestStringInSlice(searchResult.Result)
+	columns := []table.Column{
+		{Title: "Name", Width: rowContentWidth["Name"]},
+		{Title: "Version", Width: rowContentWidth["Version"]},
+		{Title: "Downloads", Width: rowContentWidth["Downloads"]},
+	}
+
 	t := table.New(
 		table.WithColumns(columns),
 		table.WithRows(rows),
 		table.WithFocused(true),
-		table.WithHeight(len(rows)+2),
-		table.WithWidth(maxWidth+4),
 	)
 
 	s := table.DefaultStyles()
@@ -212,17 +218,39 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 		Foreground(lipgloss.Color("229")).
 		Background(lipgloss.Color("57")).
 		Bold(false)
+
 	t.SetStyles(s)
 
 	return t
 }
 
-func FindLargestStringInSlice(s []string) int {
+func updateRowContentWidth(rowContentWidth *map[string]int, name, version, downloads string) {
+	if len(name) > (*rowContentWidth)["Name"] {
+		(*rowContentWidth)["Name"] = lipgloss.Width(name)
+	}
+	if len(version) > (*rowContentWidth)["Version"] {
+		(*rowContentWidth)["Version"] = lipgloss.Width(version)
+	}
+	if len(downloads) > (*rowContentWidth)["Downloads"] {
+		(*rowContentWidth)["Downloads"] = lipgloss.Width(downloads)
+	}
+}
+
+func getTableWidth(rowWidths map[string]int) int {
+	sum := 0
+	for _, value := range rowWidths {
+		sum += value
+	}
+	return sum
+}
+
+func GetMaxStringWidth(s []string) int {
 	max := 0
 	for _, str := range s {
-		if len(str) > max {
-			max = len(str)
+		if lipgloss.Width(str) > max {
+			max = lipgloss.Width(str)
 		}
+
 	}
 	return max
 }

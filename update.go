@@ -19,7 +19,7 @@ func (mvm MainViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			logMu.Lock()
 			logger.Printf("Enter key was pressed and will now try to change to model: %v", mvm.viewList.Index())
 			logMu.Unlock()
-			newModel, err := ChangeViewState(mvm.viewList.Index() + 1) // pluss one because idx 0 is mainview
+			newModel, err := ChangeViewState(mvm.viewList.Index()+1, mvm.width, mvm.height) // pluss one because idx 0 is mainview
 			if err != nil {
 				logMu.Lock()
 				logger.Printf("Error in ChangeViewState: %v", err)
@@ -43,13 +43,8 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	logger.Printf("Received message: %T", msg)
 	logMu.Unlock()
 	switch msg := msg.(type) {
-
 	case tea.WindowSizeMsg:
 		svm.SetSize(msg.Width, msg.Height)
-		logMu.Lock()
-		logger.Printf("Changed height to: %v", svm.GetHeight())
-		logger.Printf("Changed width to: %v", svm.GetWidth())
-		logMu.Unlock()
 		return svm, nil
 
 	case tickMsg:
@@ -83,7 +78,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "-":
-			newModel, err := ChangeViewState(MainViewState)
+			newModel, err := ChangeViewState(MainViewState, svm.width, svm.height)
 			if err != nil {
 				logMu.Lock()
 				logger.Printf("Error in ChangeViewState: %v", err)
