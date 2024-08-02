@@ -19,7 +19,7 @@ func (mvm MainViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			logMu.Lock()
 			logger.Printf("Enter key was pressed and will now try to change to model: %v", mvm.viewList.Index())
 			logMu.Unlock()
-			newModel, err := ChangeViewState(mvm.viewList.Index()+1, mvm.width, mvm.height) // pluss one because idx 0 is mainview
+			newModel, err := ChangeViewState(mvm.viewList.Index()+1, mvm.BaseModel) // pluss one because idx 0 is mainview
 			if err != nil {
 				logMu.Lock()
 				logger.Printf("Error in ChangeViewState: %v", err)
@@ -53,7 +53,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		logMu.Unlock()
 		if svm.progressBar.Percent() == 1.0 {
 			svm.isSearching = false
-			return svm, svm.progressBar.SetPercent(0) // TODO: reset the view to table view
+			return svm, svm.progressBar.SetPercent(0)
 		}
 		cmd := svm.progressBar.IncrPercent(0.25)
 		logMu.Lock()
@@ -75,10 +75,15 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		svm.cursor = 0
 		return svm, nil
 
+	case InstallPackage:
+
+		// TODO: implement
+		return svm, nil
+
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "-":
-			newModel, err := ChangeViewState(MainViewState, svm.width, svm.height)
+			newModel, err := ChangeViewState(MainViewState, svm.BaseModel)
 			if err != nil {
 				logMu.Lock()
 				logger.Printf("Error in ChangeViewState: %v", err)
@@ -103,7 +108,20 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			if svm.cursor < len(svm.packageSearchTable.Rows())-1 {
 				svm.cursor++
 			}
+		case "i":
+			if svm.selectSearchTable {
+				logMu.Lock()
+				logger.Printf("i key was pressed will now try to install package: %v", svm.packageSearchTable.Rows()[svm.cursor][0])
+				logMu.Unlock()
+				return svm, InstallPackageCmd(svm.packageSearchTable.Rows()[svm.cursor][0])
+			}
 		case "enter":
+
+			if svm.selectSearchTable {
+				AddPackageToSelectedPackages(svm.packageSearchTable.Rows()[svm.cursor][0], &svm.selectedPackages) // mutates model
+				// TODO: progressbar med downloading pakke navn, og gå deretter tilbake til hoved view
+				return svm, nil
+			}
 			logMu.Lock()
 			logger.Printf("Serching for package with name of %v", svm.inputField.Value())
 			logMu.Unlock()

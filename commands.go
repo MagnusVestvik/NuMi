@@ -13,6 +13,10 @@ type SearchResult struct {
 	SearchTerm string
 }
 
+type InstallPackage struct {
+	name string
+}
+
 type tickMsg time.Time
 
 func SearchPackagesCmd(args ...string) tea.Cmd {
@@ -33,6 +37,24 @@ func SearchPackagesCmd(args ...string) tea.Cmd {
 		searchResult := SearchResult{strings.Split(response, "--------------------"), args[0]}
 
 		return searchResult
+	}
+}
+
+func InstallPackageCmd(args ...string) tea.Cmd {
+	return func() tea.Msg {
+		logMu.Lock()
+		logger.Printf("Executing InstallPackageCmd with args: %v", args)
+		logMu.Unlock()
+		response, err := runNuGetCommand("install", args[0]) // TODO: handle multiple args
+		if err != nil {
+			logMu.Lock()
+			logger.Printf("Error in InstallPackageCmd: %v", err)
+			logMu.Unlock()
+			return err
+		}
+		return InstallPackage{
+			name: response,
+		}
 	}
 }
 

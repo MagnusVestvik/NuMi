@@ -45,12 +45,12 @@ func (i item) Title() string       { return i.title }
 func (i item) Description() string { return i.desc }
 func (i item) FilterValue() string { return i.title }
 
-func ChangeViewState(viewState int, width int, height int) (tea.Model, error) {
+func ChangeViewState(viewState int, base BaseModel) (tea.Model, error) {
 	switch viewState {
 	case MainViewState:
-		return initMainViewModel(width, height), nil
+		return initMainViewModel(base), nil
 	case SearchViewState:
-		return initSearchViewModel(width, height), nil
+		return initSearchViewModel(base), nil
 	}
 	return nil, errors.New("Invalid view state selected with viewState: " + string(viewState)) // TODO: fix this to not return a string of runes but rather a string of the actuall number
 }
@@ -133,26 +133,6 @@ func center(m BaseModel, s string) string {
 
 }
 
-func wrapText(text string, width int) string {
-	words := strings.Fields(text)
-	if len(words) == 0 {
-		return ""
-	}
-	wrapped := words[0]
-	spaceLeft := width - len(wrapped)
-	for _, word := range words[1:] {
-		if len(word)+1 > spaceLeft {
-			wrapped += "\n" + word
-			spaceLeft = width - len(word)
-		} else {
-			wrapped += " " + word
-			spaceLeft -= 1 + len(word)
-		}
-	}
-	return wrapped
-}
-
-// TODO: Rewrite
 func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) table.Model {
 	if strings.Contains(searchResult.Result[1], "No results found") {
 		columns := []table.Column{
@@ -197,9 +177,9 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 	}
 
 	columns := []table.Column{
-		{Title: "Name", Width: rowContentWidth["Name"]},
-		{Title: "Version", Width: rowContentWidth["Version"]},
-		{Title: "Downloads", Width: rowContentWidth["Downloads"]},
+		{Title: "Name", Width: Max(rowContentWidth["Name"], len("Name"))},
+		{Title: "Version", Width: Max(rowContentWidth["Version"], len("Version"))},
+		{Title: "Downloads", Width: Max(rowContentWidth["Downloads"], len("Downloads"))},
 	}
 
 	t := table.New(
@@ -225,13 +205,18 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 }
 
 func updateRowContentWidth(rowContentWidth *map[string]int, name, version, downloads string) {
-	if len(name) > (*rowContentWidth)["Name"] {
+	if lipgloss.Width(name) > (*rowContentWidth)["Name"] {
 		(*rowContentWidth)["Name"] = lipgloss.Width(name)
 	}
-	if len(version) > (*rowContentWidth)["Version"] {
+	if lipgloss.Width(version) > (*rowContentWidth)["Version"] {
 		(*rowContentWidth)["Version"] = lipgloss.Width(version)
 	}
-	if len(downloads) > (*rowContentWidth)["Downloads"] {
+	if lipgloss.Width(downloads) > (*rowContentWidth)["Downloads"] {
+		logMu.Lock()
+		logger.Printf("DownloadsWidth: %v", (*rowContentWidth)["Downloads"])
+		logger.Printf("Downloads: %v", downloads)
+		logger.Printf("DownloadsWidth: %v", lipgloss.Width(downloads))
+		logMu.Unlock()
 		(*rowContentWidth)["Downloads"] = lipgloss.Width(downloads)
 	}
 }
@@ -253,4 +238,11 @@ func GetMaxStringWidth(s []string) int {
 
 	}
 	return max
+}
+
+func Max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

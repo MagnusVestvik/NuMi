@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/charmbracelet/bubbles/help"
 	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/bubbles/progress"
@@ -16,6 +17,11 @@ type ViewModel interface {
 }
 
 type GlobalKeyMap struct {
+	navigationKeys []key.Binding
+	actionKeys     []key.Binding
+	helperKeys     []key.Binding
+}
+type keyMap struct {
 	Up    key.Binding
 	Down  key.Binding
 	Left  key.Binding
@@ -27,7 +33,8 @@ type GlobalKeyMap struct {
 type BaseModel struct {
 	height int
 	width  int
-	keys   GlobalKeyMap
+	keys   keyMap
+	help   help.Model
 	style  lipgloss.Style
 }
 
@@ -35,10 +42,18 @@ type SearchViewModel struct {
 	BaseModel
 	packageSearchTable table.Model
 	selectSearchTable  bool
+	selectedPackages   SelectedPackages
 	isSearching        bool
 	cursor             int
 	inputField         textinput.Model
 	progressBar        progress.Model
+}
+
+// TODO: legg til view for å laste ned flere pakker, enter = legge til en pakke til ny box hvor man tilslut kan laste ned alle selected pakker
+type SelectedPackages struct {
+	packages      list.Model
+	prgressBars   []progress.Model
+	isDownloading bool
 }
 
 type MainViewModel struct {
@@ -50,7 +65,7 @@ type ListPackageViewModel struct {
 	BaseModel
 }
 
-func initSearchViewModel(width int, height int) SearchViewModel {
+func initSearchViewModel(baseModel BaseModel) SearchViewModel {
 	ti := textinput.New()
 	ti.Placeholder = "Search for packages"
 	ti.Focus()
@@ -58,40 +73,48 @@ func initSearchViewModel(width int, height int) SearchViewModel {
 	baseStyle := lipgloss.NewStyle().
 		BorderStyle(lipgloss.NormalBorder()).
 		BorderForeground(lipgloss.Color("240"))
-	baseViewModel := BaseModel{
-		height: height,
-		width:  width,
-		style:  baseStyle,
-	}
-
+	baseModel.style = baseStyle
 	searchViewModel := SearchViewModel{
-		BaseModel:         baseViewModel,
+		BaseModel:         baseModel,
 		inputField:        ti,
 		progressBar:       progress.New(progress.WithDefaultGradient()),
 		selectSearchTable: false,
+		selectedPackages:  initSelectPackages(),
 	}
-	searchViewModel.SetSize(width, height)
 
 	return searchViewModel
 }
 
-func initMainViewModel(width int, height int) MainViewModel {
+func initMainViewModel(baseModel BaseModel) MainViewModel {
 	choices := getMainViewChoices()
 	startViewList := list.New(choices, list.NewDefaultDelegate(), 0, 0)
 	startViewList.Title = "Main Menu"
 	listBaseStyle := lipgloss.NewStyle().Margin(1, 2)
-	baseViewModel := BaseModel{
-		height: height,
-		width:  width,
-		style:  listBaseStyle,
-	}
+	baseModel.style = listBaseStyle
 	mainViewModel := MainViewModel{
-		BaseModel: baseViewModel,
+		BaseModel: baseModel,
 		viewList:  startViewList,
 	}
-	mainViewModel.SetSize(width, height)
 
 	return mainViewModel
+}
+
+func initStart() tea.Model {
+	return initMainViewModel(BaseModel{
+		width:  80,
+		height: 24,
+		help:   help.New(),
+		keys:   globalKeys},
+	)
+}
+
+func initSelectPackages() SelectedPackages {
+	packagesList := list.New(nil, list.NewDefaultDelegate(), 0, 0) // må sette width
+	packagesList.Title = "Selected Packages"
+	return SelectedPackages{
+		packages:      packagesList,
+		isDownloading: false,
+	}
 }
 
 func initListPackageViewModel() ListPackageViewModel {
@@ -114,4 +137,24 @@ func (svm *SearchViewModel) SetSize(width, height int) {
 	svm.width = width
 	svm.height = height
 	svm.progressBar.Width = width - 4 // Adjust for margins
+}
+
+// ShortHelp returns keybindings to be shown in the mini help view. It's part
+// of the key.Map interface.
+func (k keyMap) ShortHelp() []key.Binding {
+	return []key.Binding{k.Help, k.Quit}
+}
+
+// FullHelp returns keybindings for the expanded help view. It's part of the
+// key.Map interface.
+func (k keyMap) FullHelp() [][]key.Binding {
+	return [][]key.Binding{
+		{k.Up, k.Down, k.Left, k.Right}, // first column
+		{k.Help, k.Quit},                // second column
+	}
+}
+
+func AddPackageToSelectedPackages(packageName string, sp *SelectedPackages) {
+	newItem := item{title: packageName}
+	sp.packages.InsertItem(len(sp.packages.Items()), newItem)
 }
