@@ -52,7 +52,7 @@ type SearchViewModel struct {
 // TODO: legg til view for å laste ned flere pakker, enter = legge til en pakke til ny box hvor man tilslut kan laste ned alle selected pakker
 type SelectedPackages struct {
 	packages      list.Model
-	prgressBars   []progress.Model
+	progressBars  []progress.Model
 	isDownloading bool
 }
 

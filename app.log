@@ -1,0 +1,1890 @@
+19:50:58 update.go:10: Received message: tea.WindowSizeMsg
+19:50:59 update.go:10: Received message: tea.KeyMsg
+19:51:00 update.go:10: Received message: tea.KeyMsg
+19:51:02 update.go:10: Received message: tea.KeyMsg
+19:51:02 update.go:10: Received message: tea.KeyMsg
+19:51:02 update.go:10: Received message: tea.KeyMsg
+19:51:02 update.go:20: Enter key was pressed and will now try to change to model: 0
+19:51:02 update.go:30: Succesffuly change viewmodel to model number: 0
+19:51:04 update.go:43: Received message: tea.KeyMsg
+19:51:04 update.go:43: Received message: tea.KeyMsg
+19:51:04 update.go:43: Received message: cursor.blinkCanceled
+19:51:04 update.go:43: Received message: tea.KeyMsg
+19:51:04 update.go:43: Received message: cursor.blinkCanceled
+19:51:04 update.go:43: Received message: tea.KeyMsg
+19:51:04 update.go:43: Received message: cursor.blinkCanceled
+19:51:05 update.go:43: Received message: tea.KeyMsg
+19:51:05 update.go:43: Received message: cursor.blinkCanceled
+19:51:05 update.go:43: Received message: tea.KeyMsg
+19:51:05 update.go:43: Received message: cursor.blinkCanceled
+19:51:05 update.go:43: Received message: tea.KeyMsg
+19:51:05 update.go:126: Serching for package with name of openai
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 commands.go:25: Executing SearchPackagesCmd with args: [openai]
+19:51:05 helper.go:61: Running command: nuget search openai
+19:51:05 helper.go:65: Command output: 
+19:51:05 helper.go:67: Command error: exec: "nuget": executable file not found in $PATH
+19:51:05 commands.go:33: Error in SearchPackagesCmd: exec: "nuget": executable file not found in $PATH
+19:51:05 update.go:43: Received message: *exec.Error
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: cursor.BlinkMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:05 update.go:43: Received message: progress.FrameMsg
+19:51:05 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: main.tickMsg
+19:51:06 update.go:52: TickMsg received: {13954034845260812068 8277834813 0x7574c0}
+19:51:06 update.go:60: Progress incremented: 0.5
+19:51:06 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  25%
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:06 update.go:43: Received message: progress.FrameMsg
+19:51:06 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: main.tickMsg
+19:51:07 update.go:52: TickMsg received: {13954034846334901809 9278182740 0x7574c0}
+19:51:07 update.go:60: Progress incremented: 0.75
+19:51:07 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  50%
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:07 update.go:43: Received message: progress.FrameMsg
+19:51:07 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: main.tickMsg
+19:51:08 update.go:52: TickMsg received: {13954034847409364027 10278903124 0x7574c0}
+19:51:08 update.go:60: Progress incremented: 1
+19:51:08 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;174;97;234m█[0m[38;2;178;97;235m█[0m[38;2;182;99;235m█[0m[38;2;186;100;236m█[0m[38;2;190;100;237m█[0m[38;2;194;101;238m█[0m[38;2;198;102;238m█[0m[38;2;201;103;239m█[0m[38;2;205;104;240m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  75%
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:08 update.go:43: Received message: progress.FrameMsg
+19:51:08 views.go:18: ProgressView rendering! 
+19:51:09 update.go:43: Received message: main.tickMsg
+19:51:09 update.go:52: TickMsg received: {13954034848483498802 11279296085 0x7574c0}
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:09 update.go:43: Received message: progress.FrameMsg
+19:51:12 update.go:43: Received message: tea.KeyMsg
+19:56:56 update.go:10: Received message: tea.WindowSizeMsg
+19:56:56 update.go:10: Received message: tea.KeyMsg
+19:56:57 update.go:10: Received message: tea.KeyMsg
+19:56:57 update.go:10: Received message: tea.KeyMsg
+19:56:57 update.go:10: Received message: tea.KeyMsg
+19:56:57 update.go:10: Received message: tea.KeyMsg
+19:56:57 update.go:20: Enter key was pressed and will now try to change to model: 0
+19:56:57 update.go:30: Succesffuly change viewmodel to model number: 0
+19:57:01 update.go:43: Received message: tea.KeyMsg
+19:57:01 update.go:43: Received message: cursor.BlinkMsg
+19:57:02 update.go:43: Received message: tea.KeyMsg
+19:57:02 update.go:43: Received message: cursor.BlinkMsg
+19:58:30 update.go:43: Received message: tea.KeyMsg
+19:58:30 update.go:43: Received message: tea.KeyMsg
+19:58:52 update.go:10: Received message: tea.WindowSizeMsg
+19:58:52 update.go:10: Received message: tea.KeyMsg
+19:58:52 update.go:20: Enter key was pressed and will now try to change to model: 0
+19:58:52 update.go:30: Succesffuly change viewmodel to model number: 0
+19:59:05 update.go:43: Received message: tea.KeyMsg
+19:59:05 update.go:43: Received message: tea.KeyMsg
+19:59:05 update.go:43: Received message: cursor.blinkCanceled
+19:59:06 update.go:43: Received message: tea.KeyMsg
+19:59:06 update.go:43: Received message: cursor.blinkCanceled
+19:59:06 update.go:43: Received message: tea.KeyMsg
+19:59:06 update.go:43: Received message: cursor.blinkCanceled
+19:59:06 update.go:43: Received message: tea.KeyMsg
+19:59:06 update.go:43: Received message: cursor.blinkCanceled
+19:59:06 update.go:43: Received message: tea.KeyMsg
+19:59:06 update.go:43: Received message: cursor.blinkCanceled
+19:59:06 update.go:43: Received message: tea.KeyMsg
+19:59:06 update.go:126: Serching for package with name of openai
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 commands.go:25: Executing SearchPackagesCmd with args: [openai]
+19:59:06 helper.go:61: Running command: nuget search openai
+19:59:06 helper.go:65: Command output: 
+19:59:06 helper.go:67: Command error: exec: "nuget": executable file not found in $PATH
+19:59:06 commands.go:33: Error in SearchPackagesCmd: exec: "nuget": executable file not found in $PATH
+19:59:06 update.go:43: Received message: *exec.Error
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: cursor.BlinkMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:06 update.go:43: Received message: progress.FrameMsg
+19:59:06 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: main.tickMsg
+19:59:07 update.go:52: TickMsg received: {13954035361857531948 15506866636 0x7554c0}
+19:59:07 update.go:60: Progress incremented: 0.5
+19:59:07 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  25%
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:07 update.go:43: Received message: progress.FrameMsg
+19:59:07 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: main.tickMsg
+19:59:08 update.go:52: TickMsg received: {13954035362932097174 16507690038 0x7554c0}
+19:59:08 update.go:60: Progress incremented: 0.75
+19:59:08 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  50%
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:08 update.go:43: Received message: progress.FrameMsg
+19:59:08 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: main.tickMsg
+19:59:09 update.go:52: TickMsg received: {13954035364006902280 17508753310 0x7554c0}
+19:59:09 update.go:60: Progress incremented: 1
+19:59:09 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;174;97;234m█[0m[38;2;178;97;235m█[0m[38;2;182;99;235m█[0m[38;2;186;100;236m█[0m[38;2;190;100;237m█[0m[38;2;194;101;238m█[0m[38;2;198;102;238m█[0m[38;2;201;103;239m█[0m[38;2;205;104;240m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  75%
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:09 update.go:43: Received message: progress.FrameMsg
+19:59:09 views.go:18: ProgressView rendering! 
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 views.go:18: ProgressView rendering! 
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 views.go:18: ProgressView rendering! 
+19:59:10 update.go:43: Received message: main.tickMsg
+19:59:10 update.go:52: TickMsg received: {13954035365081969740 18510078966 0x7554c0}
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:10 update.go:43: Received message: progress.FrameMsg
+19:59:11 update.go:43: Received message: progress.FrameMsg
+19:59:11 update.go:43: Received message: progress.FrameMsg
+19:59:11 update.go:43: Received message: progress.FrameMsg
+19:59:11 update.go:43: Received message: progress.FrameMsg
+19:59:11 update.go:43: Received message: progress.FrameMsg
+19:59:12 update.go:43: Received message: tea.KeyMsg
+19:59:12 update.go:43: Received message: tea.KeyMsg
+19:59:12 update.go:43: Received message: cursor.blinkCanceled
+19:59:12 update.go:43: Received message: tea.KeyMsg
+19:59:12 update.go:43: Received message: cursor.blinkCanceled
+19:59:13 update.go:43: Received message: tea.KeyMsg
+19:59:13 update.go:43: Received message: cursor.blinkCanceled
+19:59:13 update.go:43: Received message: tea.KeyMsg
+19:59:13 update.go:43: Received message: cursor.blinkCanceled
+19:59:13 update.go:43: Received message: tea.KeyMsg
+19:59:13 update.go:43: Received message: cursor.blinkCanceled
+19:59:13 update.go:43: Received message: tea.KeyMsg
+19:59:13 update.go:43: Received message: cursor.BlinkMsg
+19:59:16 update.go:43: Received message: tea.KeyMsg
+19:59:16 update.go:126: Serching for package with name of 
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 commands.go:25: Executing SearchPackagesCmd with args: []
+19:59:16 helper.go:61: Running command: nuget search 
+19:59:16 helper.go:65: Command output: 
+19:59:16 helper.go:67: Command error: exec: "nuget": executable file not found in $PATH
+19:59:16 commands.go:33: Error in SearchPackagesCmd: exec: "nuget": executable file not found in $PATH
+19:59:16 update.go:43: Received message: *exec.Error
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:16 update.go:43: Received message: progress.FrameMsg
+19:59:16 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: main.tickMsg
+19:59:17 update.go:52: TickMsg received: {13954035372097686836 25009603284 0x7554c0}
+19:59:17 update.go:60: Progress incremented: 0.5
+19:59:17 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  25%
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:17 update.go:43: Received message: progress.FrameMsg
+19:59:17 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: main.tickMsg
+19:59:18 update.go:52: TickMsg received: {13954035373172248503 26010423117 0x7554c0}
+19:59:18 update.go:60: Progress incremented: 0.75
+19:59:18 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  50%
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:18 update.go:43: Received message: progress.FrameMsg
+19:59:18 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: main.tickMsg
+19:59:19 update.go:52: TickMsg received: {13954035374246767956 27011200746 0x7554c0}
+19:59:19 update.go:60: Progress incremented: 1
+19:59:19 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;174;97;234m█[0m[38;2;178;97;235m█[0m[38;2;182;99;235m█[0m[38;2;186;100;236m█[0m[38;2;190;100;237m█[0m[38;2;194;101;238m█[0m[38;2;198;102;238m█[0m[38;2;201;103;239m█[0m[38;2;205;104;240m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  75%
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:19 update.go:43: Received message: progress.FrameMsg
+19:59:19 views.go:18: ProgressView rendering! 
+19:59:20 update.go:43: Received message: main.tickMsg
+19:59:20 update.go:52: TickMsg received: {13954035375321106494 28011797461 0x7554c0}
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:20 update.go:43: Received message: progress.FrameMsg
+19:59:24 update.go:43: Received message: tea.KeyMsg
+19:59:24 update.go:126: Serching for package with name of 
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 commands.go:25: Executing SearchPackagesCmd with args: []
+19:59:24 helper.go:61: Running command: nuget search 
+19:59:24 helper.go:65: Command output: 
+19:59:24 helper.go:67: Command error: exec: "nuget": executable file not found in $PATH
+19:59:24 commands.go:33: Error in SearchPackagesCmd: exec: "nuget": executable file not found in $PATH
+19:59:24 update.go:43: Received message: *exec.Error
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:24 update.go:43: Received message: progress.FrameMsg
+19:59:24 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: main.tickMsg
+19:59:25 update.go:52: TickMsg received: {13954035380794289048 33116270894 0x7554c0}
+19:59:25 update.go:60: Progress incremented: 0.5
+19:59:25 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  25%
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:25 update.go:43: Received message: progress.FrameMsg
+19:59:25 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: main.tickMsg
+19:59:26 update.go:52: TickMsg received: {13954035381868628354 34116868376 0x7554c0}
+19:59:26 update.go:60: Progress incremented: 0.75
+19:59:26 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  50%
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:26 update.go:43: Received message: progress.FrameMsg
+19:59:26 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: main.tickMsg
+19:59:27 update.go:52: TickMsg received: {13954035382943474913 35117973121 0x7554c0}
+19:59:27 update.go:60: Progress incremented: 1
+19:59:27 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;174;97;234m█[0m[38;2;178;97;235m█[0m[38;2;182;99;235m█[0m[38;2;186;100;236m█[0m[38;2;190;100;237m█[0m[38;2;194;101;238m█[0m[38;2;198;102;238m█[0m[38;2;201;103;239m█[0m[38;2;205;104;240m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  75%
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:27 update.go:43: Received message: progress.FrameMsg
+19:59:27 views.go:18: ProgressView rendering! 
+19:59:28 update.go:43: Received message: main.tickMsg
+19:59:28 update.go:52: TickMsg received: {13954035384017695993 36118452377 0x7554c0}
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:28 update.go:43: Received message: progress.FrameMsg
+19:59:29 update.go:43: Received message: tea.KeyMsg
+20:10:12 update.go:10: Received message: tea.WindowSizeMsg
+20:10:13 update.go:10: Received message: tea.KeyMsg
+20:10:13 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:10:13 update.go:30: Succesffuly change viewmodel to model number: 0
+20:10:29 update.go:43: Received message: tea.KeyMsg
+20:10:29 update.go:43: Received message: tea.KeyMsg
+20:10:29 update.go:43: Received message: cursor.blinkCanceled
+20:10:29 update.go:43: Received message: tea.KeyMsg
+20:10:29 update.go:43: Received message: cursor.blinkCanceled
+20:10:29 update.go:43: Received message: tea.KeyMsg
+20:10:29 update.go:43: Received message: cursor.blinkCanceled
+20:10:29 update.go:43: Received message: tea.KeyMsg
+20:10:29 update.go:43: Received message: cursor.blinkCanceled
+20:10:29 update.go:43: Received message: tea.KeyMsg
+20:10:29 update.go:43: Received message: cursor.blinkCanceled
+20:10:29 update.go:43: Received message: tea.KeyMsg
+20:10:29 update.go:126: Serching for package with name of openai
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 commands.go:25: Executing SearchPackagesCmd with args: [openai]
+20:10:29 helper.go:61: Running command: nuget search openai
+20:10:29 helper.go:65: Command output: 
+20:10:29 helper.go:67: Command error: exec: "nuget": executable file not found in $PATH
+20:10:29 commands.go:33: Error in SearchPackagesCmd: exec: "nuget": executable file not found in $PATH
+20:10:29 update.go:43: Received message: *exec.Error
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:29 update.go:43: Received message: progress.FrameMsg
+20:10:29 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: cursor.BlinkMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: main.tickMsg
+20:10:30 update.go:52: TickMsg received: {13954036095527563554 18418645954 0x7564c0}
+20:10:30 update.go:60: Progress incremented: 0.5
+20:10:30 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  25%
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:30 update.go:43: Received message: progress.FrameMsg
+20:10:30 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: main.tickMsg
+20:10:31 update.go:52: TickMsg received: {13954036096602194651 19419535217 0x7564c0}
+20:10:31 update.go:60: Progress incremented: 0.75
+20:10:31 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  50%
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:31 update.go:43: Received message: progress.FrameMsg
+20:10:31 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: main.tickMsg
+20:10:32 update.go:52: TickMsg received: {13954036097677063415 20420662167 0x7564c0}
+20:10:32 update.go:60: Progress incremented: 1
+20:10:32 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;174;97;234m█[0m[38;2;178;97;235m█[0m[38;2;182;99;235m█[0m[38;2;186;100;236m█[0m[38;2;190;100;237m█[0m[38;2;194;101;238m█[0m[38;2;198;102;238m█[0m[38;2;201;103;239m█[0m[38;2;205;104;240m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  75%
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:32 update.go:43: Received message: progress.FrameMsg
+20:10:32 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 views.go:17: ProgressView rendering! 
+20:10:33 update.go:43: Received message: main.tickMsg
+20:10:33 update.go:52: TickMsg received: {13954036098751657813 21421514791 0x7564c0}
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:33 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:10:34 update.go:43: Received message: progress.FrameMsg
+20:11:50 update.go:43: Received message: tea.KeyMsg
+20:11:55 update.go:10: Received message: tea.WindowSizeMsg
+20:11:56 update.go:10: Received message: tea.KeyMsg
+20:11:56 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:11:56 update.go:30: Succesffuly change viewmodel to model number: 0
+20:11:59 update.go:43: Received message: tea.KeyMsg
+20:11:59 update.go:43: Received message: tea.KeyMsg
+20:11:59 update.go:43: Received message: cursor.blinkCanceled
+20:12:00 update.go:43: Received message: tea.KeyMsg
+20:12:00 update.go:43: Received message: cursor.blinkCanceled
+20:12:00 update.go:43: Received message: tea.KeyMsg
+20:12:00 update.go:43: Received message: cursor.blinkCanceled
+20:12:00 update.go:43: Received message: tea.KeyMsg
+20:12:00 update.go:43: Received message: cursor.blinkCanceled
+20:12:00 update.go:43: Received message: tea.KeyMsg
+20:12:00 update.go:43: Received message: cursor.blinkCanceled
+20:12:00 update.go:43: Received message: tea.KeyMsg
+20:12:00 update.go:126: Serching for package with name of openai
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 commands.go:25: Executing SearchPackagesCmd with args: [openai]
+20:12:00 helper.go:61: Running command: nuget search openai
+20:12:00 helper.go:65: Command output: 
+20:12:00 helper.go:67: Command error: exec: "nuget": executable file not found in $PATH
+20:12:00 commands.go:33: Error in SearchPackagesCmd: exec: "nuget": executable file not found in $PATH
+20:12:00 update.go:43: Received message: *exec.Error
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: cursor.BlinkMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:00 update.go:43: Received message: progress.FrameMsg
+20:12:00 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: main.tickMsg
+20:12:01 update.go:52: TickMsg received: {13954036192874168509 6236215929 0x7564c0}
+20:12:01 update.go:60: Progress incremented: 0.5
+20:12:01 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  25%
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:01 update.go:43: Received message: progress.FrameMsg
+20:12:01 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: main.tickMsg
+20:12:02 update.go:52: TickMsg received: {13954036193948669882 7236975488 0x7564c0}
+20:12:02 update.go:60: Progress incremented: 0.75
+20:12:02 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  50%
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:02 update.go:43: Received message: progress.FrameMsg
+20:12:02 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: main.tickMsg
+20:12:03 update.go:52: TickMsg received: {13954036195023247839 8237811621 0x7564c0}
+20:12:03 update.go:60: Progress incremented: 1
+20:12:03 update.go:61: Progress is currently at value: [38;2;89;86;224m█[0m[38;2;97;87;224m█[0m[38;2;103;87;225m█[0m[38;2;109;88;225m█[0m[38;2;115;88;226m█[0m[38;2;120;89;226m█[0m[38;2;125;89;227m█[0m[38;2;130;89;227m█[0m[38;2;135;91;227m█[0m[38;2;140;92;227m█[0m[38;2;145;92;229m█[0m[38;2;149;93;230m█[0m[38;2;153;94;230m█[0m[38;2;158;94;231m█[0m[38;2;162;95;232m█[0m[38;2;166;96;232m█[0m[38;2;170;97;233m█[0m[38;2;174;97;234m█[0m[38;2;178;97;235m█[0m[38;2;182;99;235m█[0m[38;2;186;100;236m█[0m[38;2;190;100;237m█[0m[38;2;194;101;238m█[0m[38;2;198;102;238m█[0m[38;2;201;103;239m█[0m[38;2;205;104;240m█[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m[38;2;96;96;96m░[0m  75%
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:03 update.go:43: Received message: progress.FrameMsg
+20:12:03 views.go:17: ProgressView rendering! 
+20:12:04 update.go:43: Received message: main.tickMsg
+20:12:04 update.go:52: TickMsg received: {13954036196097379026 9238200984 0x7564c0}
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:04 update.go:43: Received message: progress.FrameMsg
+20:12:05 update.go:43: Received message: progress.FrameMsg
+20:12:05 update.go:43: Received message: tea.KeyMsg
+20:12:07 update.go:43: Received message: tea.KeyMsg
+20:12:11 update.go:10: Received message: tea.WindowSizeMsg
+20:12:12 update.go:10: Received message: tea.KeyMsg
+20:12:12 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:12:12 update.go:30: Succesffuly change viewmodel to model number: 0
+20:12:50 update.go:43: Received message: tea.KeyMsg
+20:12:54 update.go:10: Received message: tea.WindowSizeMsg
+20:12:54 update.go:10: Received message: tea.KeyMsg
+20:12:54 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:12:54 update.go:30: Succesffuly change viewmodel to model number: 0
+20:14:10 update.go:43: Received message: tea.KeyMsg
+20:14:15 update.go:10: Received message: tea.WindowSizeMsg
+20:14:16 update.go:10: Received message: tea.KeyMsg
+20:14:16 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:14:16 update.go:30: Succesffuly change viewmodel to model number: 0
+20:19:48 update.go:43: Received message: tea.KeyMsg
+20:19:50 update.go:43: Received message: tea.KeyMsg
+20:20:46 update.go:10: Received message: tea.WindowSizeMsg
+20:20:46 update.go:10: Received message: tea.KeyMsg
+20:20:46 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:20:46 update.go:30: Succesffuly change viewmodel to model number: 0
+20:20:52 update.go:43: Received message: tea.KeyMsg
+20:20:52 update.go:43: Received message: cursor.BlinkMsg
+20:20:52 update.go:43: Received message: tea.KeyMsg
+20:20:53 update.go:43: Received message: cursor.BlinkMsg
+20:25:19 update.go:43: Received message: tea.KeyMsg
+20:25:25 update.go:10: Received message: tea.WindowSizeMsg
+20:25:25 update.go:10: Received message: tea.KeyMsg
+20:25:25 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:25:25 update.go:30: Succesffuly change viewmodel to model number: 0
+20:25:26 update.go:43: Received message: tea.KeyMsg
+20:25:40 update.go:10: Received message: tea.WindowSizeMsg
+20:25:41 update.go:10: Received message: tea.KeyMsg
+20:25:41 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:25:41 update.go:30: Succesffuly change viewmodel to model number: 0
+20:28:51 update.go:43: Received message: tea.KeyMsg
+20:28:54 update.go:10: Received message: tea.WindowSizeMsg
+20:28:54 update.go:10: Received message: tea.KeyMsg
+20:28:54 update.go:20: Enter key was pressed and will now try to change to model: 0
+20:28:54 update.go:30: Succesffuly change viewmodel to model number: 0
+20:28:56 update.go:43: Received message: tea.KeyMsg

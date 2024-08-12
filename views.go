@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/charmbracelet/lipgloss"
 	"strings"
 )
 
@@ -25,7 +24,7 @@ func (svm SearchViewModel) View() string {
 		return center(svm.BaseModel, pad)
 	}
 
-	selectPackages := lipgloss.PlaceVertical(svm.width, lipgloss.Top, svm.ViewSelectedPackages())
+	selectPackages := svm.ViewSelectedPackages() + "\n\n" // Her er no items satt to ganger dette skjer mest sansynlig fordi at no items er en default verdi av en tom list.model og denne rendres to ganger av en eller annen grunn
 	s := svm.inputField.View() + "\n\n"
 
 	if len(svm.packageSearchTable.Rows()) == 0 {
@@ -36,22 +35,24 @@ func (svm SearchViewModel) View() string {
 		logMu.Unlock()
 		s += svm.style.Render(svm.packageSearchTable.View()) + "\n"
 	}
-	help := svm.help.View(svm.keys)
+	//help := svm.help.View(svm.keys)
 
-	s += "\n" + help
 	toRender := selectPackages + s
 	return center(svm.BaseModel, toRender)
 }
 
 func (svm SearchViewModel) ViewSelectedPackages() string {
 	s := ""
-	if svm.selectedPackages.isDownloading {
-		for i := 0; i < len(svm.selectedPackages.prgressBars); i++ {
-			s += svm.selectedPackages.prgressBars[i].View() + "\n"
-		}
-		return s
+	// If no packages are currently downloading, view all selected packages
+	if !svm.selectedPackages.isDownloading {
+		return svm.selectedPackages.packages.View()
 	}
-	return svm.selectedPackages.packages.View()
+
+	// Render progressBars for the packages that are currently downloading.
+	for i := 0; i < len(svm.selectedPackages.progressBars); i++ {
+		s += svm.selectedPackages.progressBars[i].View() + "\n"
+	}
+	return s
 
 }
 

@@ -116,7 +116,6 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				return svm, InstallPackageCmd(svm.packageSearchTable.Rows()[svm.cursor][0])
 			}
 		case "enter":
-
 			if svm.selectSearchTable {
 				AddPackageToSelectedPackages(svm.packageSearchTable.Rows()[svm.cursor][0], &svm.selectedPackages) // mutates model
 				// TODO: progressbar med downloading pakke navn, og gå deretter tilbake til hoved view
