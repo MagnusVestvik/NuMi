@@ -109,7 +109,10 @@ func initStart() tea.Model {
 }
 
 func initSelectPackages() SelectedPackages {
-	packagesList := list.New(nil, list.NewDefaultDelegate(), 0, 0) // må sette width
+	defaultItem := []list.Item{
+		item{title: "Packages", desc: "Packages that you add will apear here, and you can download multiple at the same time!"},
+	}
+	packagesList := list.New(defaultItem, list.NewDefaultDelegate(), 0, 0)
 	packagesList.Title = "Selected Packages"
 	return SelectedPackages{
 		packages:      packagesList,

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/charmbracelet/lipgloss"
 	"strings"
 )
 
@@ -23,37 +24,54 @@ func (svm SearchViewModel) View() string {
 
 		return center(svm.BaseModel, pad)
 	}
+	container := lipgloss.NewStyle().
+		Width(svm.width).
+		Height(svm.height).
+		Align(lipgloss.Center, lipgloss.Center)
 
-	selectPackages := svm.ViewSelectedPackages() + "\n\n" // Her er no items satt to ganger dette skjer mest sansynlig fordi at no items er en default verdi av en tom list.model og denne rendres to ganger av en eller annen grunn
-	s := svm.inputField.View() + "\n\n"
+	selectedPackagesStyle := lipgloss.NewStyle().
+		Border(lipgloss.RoundedBorder()).
+		BorderForeground(lipgloss.Color("62")).
+		Padding(1).
+		Width(svm.width / 2)
+
+	inputFieldStyle := lipgloss.NewStyle().
+		Border(lipgloss.RoundedBorder()).
+		BorderForeground(lipgloss.Color("62")).
+		Padding(1).
+		Width(svm.width / 2)
+
+	selectPackages := selectedPackagesStyle.Render(svm.ViewSelectedPackages())
+	inputField := inputFieldStyle.Render(svm.inputField.View())
 
 	if len(svm.packageSearchTable.Rows()) == 0 {
-		s += "No results yet. Press Enter to search.\n"
+		inputField = lipgloss.JoinVertical(lipgloss.Center, inputField, "\n", "No results yet. Press Enter to search.")
 	} else {
 		logMu.Lock()
-		logger.Printf("PackageSearch table is: %v", svm.packageSearchTable.View()) // TODO: fix sizing of downloads in packageSearchTable
+		logger.Printf("PackageSearch table is: %v", svm.packageSearchTable.View())
 		logMu.Unlock()
-		s += svm.style.Render(svm.packageSearchTable.View()) + "\n"
+		inputField = lipgloss.JoinVertical(lipgloss.Center, inputField, "\n", svm.style.Render(svm.packageSearchTable.View())+"\n")
 	}
-	//help := svm.help.View(svm.keys)
 
-	toRender := selectPackages + s
-	return center(svm.BaseModel, toRender)
+	toRender := lipgloss.JoinVertical(lipgloss.Center, selectPackages, "\n", inputField)
+	return container.Render(toRender)
 }
 
 func (svm SearchViewModel) ViewSelectedPackages() string {
-	s := ""
-	// If no packages are currently downloading, view all selected packages
-	if !svm.selectedPackages.isDownloading {
-		return svm.selectedPackages.packages.View()
+	s := "" // Bør vær Strings.Builder istedenfor
+	if svm.selectedPackages.isDownloading {
+		for i := 0; i < len(svm.selectedPackages.progressBars); i++ {
+			s += svm.selectedPackages.progressBars[i].View() + "\n"
+		}
+		return s
 	}
 
-	// Render progressBars for the packages that are currently downloading.
-	for i := 0; i < len(svm.selectedPackages.progressBars); i++ {
-		s += svm.selectedPackages.progressBars[i].View() + "\n"
+	packages := svm.selectedPackages.packages.Items()
+	if len(packages) == 0 {
+		return svm.selectedPackages.packages.Title
 	}
-	return s
 
+	return svm.selectedPackages.packages.View()
 }
 
 func (lvm ListPackageViewModel) View() string {
