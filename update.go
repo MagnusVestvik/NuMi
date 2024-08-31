@@ -79,7 +79,6 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 		// TODO: implement
 		return svm, nil
-
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "-":
@@ -92,6 +91,8 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 			return newModel, nil
 
+		case "esc":
+			svm.selectSearchTable = true
 		case "tab":
 			logMu.Lock()
 			logger.Printf("Tab key was pressed and resulted in selectSearchTable: %v", svm.selectSearchTable)
@@ -115,10 +116,17 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				logMu.Unlock()
 				return svm, InstallPackageCmd(svm.packageSearchTable.Rows()[svm.cursor][0])
 			}
+		case "p":
+			if svm.selectSearchTable {
+				AddPackageToSelectedPackages(svm.packageSearchTable.Rows()[svm.cursor][0], &svm.selectedPackages)
+				logMu.Lock()
+				logger.Printf("Add package to selected packages")
+				logMu.Unlock()
+			}
+			return svm, nil
 		case "enter":
 			if svm.selectSearchTable {
-				AddPackageToSelectedPackages(svm.packageSearchTable.Rows()[svm.cursor][0], &svm.selectedPackages) // mutates model
-				// TODO: progressbar med downloading pakke navn, og gå deretter tilbake til hoved view
+				AddPackageToSelectedPackages(svm.packageSearchTable.Rows()[svm.cursor][0], &svm.selectedPackages)
 				return svm, nil
 			}
 			logMu.Lock()
