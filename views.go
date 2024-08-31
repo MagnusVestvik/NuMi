@@ -54,11 +54,12 @@ func (svm SearchViewModel) View() string {
 		Height(svm.height).
 		Align(lipgloss.Center, lipgloss.Center)
 
-	selectPackages := svm.renderSelectedPackages()
+	selectPackages := svm.renderSelectedPackages() // TODO: dette ser bare teit ut, man kan heller bruk det til å vis hvilke pakka man har installert kanskje
 	inputField := svm.renderSearchInputField()
 
+	// Indicates that no packages have been searched yet
 	if len(svm.packageSearchTable.Rows()) == 0 {
-		inputField = lipgloss.JoinVertical(lipgloss.Center, inputField, "\n", "No results yet. Press Enter to search.")
+		return container.Render(inputField)
 	} else {
 		logMu.Lock()
 		logger.Printf("PackageSearch table is: %v", svm.packageSearchTable.View())

@@ -114,10 +114,16 @@ func initSelectPackages() SelectedPackages {
 	}
 	packagesList := list.New(defaultItem, list.NewDefaultDelegate(), 0, 0)
 	packagesList.Title = "Selected Packages"
-	return SelectedPackages{
+
+	selectedPackages := SelectedPackages{
 		packages:      packagesList,
 		isDownloading: false,
 	}
+
+	// TODO: check if there is a way to create a custom tooltip.
+	selectedPackages.packages.SetShowHelp(false)
+
+	return selectedPackages
 }
 
 func initListPackageViewModel() ListPackageViewModel {
