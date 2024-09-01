@@ -68,7 +68,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return svm, cmd
 
 	case SearchResult:
-		svm.packageSearchTable = arrangeSearchResultTable(msg, svm.width)
+		svm.searchedPackages = arrangeSearchResultTable(msg, svm.width)
 		logMu.Lock()
 		logger.Printf("updated table: %v", msg)
 		logMu.Unlock()
@@ -92,13 +92,13 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return newModel, nil
 
 		case "esc":
-			svm.selectSearchTable = true
+			svm.searchedPackagesIsSelected = true
 		case "tab":
 			logMu.Lock()
-			logger.Printf("Tab key was pressed and resulted in selectSearchTable: %v", svm.selectSearchTable)
+			logger.Printf("Tab key was pressed and resulted in selectSearchTable: %v", svm.searchedPackagesIsSelected)
 			logMu.Unlock()
 
-			svm.selectSearchTable = !svm.selectSearchTable
+			svm.searchedPackagesIsSelected = !svm.searchedPackagesIsSelected
 		case "ctrl+c", "q":
 			return svm, tea.Quit
 		case "up", "k":
@@ -106,27 +106,27 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				svm.cursor--
 			}
 		case "down", "j":
-			if svm.cursor < len(svm.packageSearchTable.Rows())-1 {
+			if svm.cursor < len(svm.searchedPackages.Rows())-1 {
 				svm.cursor++
 			}
 		case "i":
-			if svm.selectSearchTable {
+			if svm.searchedPackagesIsSelected {
 				logMu.Lock()
-				logger.Printf("i key was pressed will now try to install package: %v", svm.packageSearchTable.Rows()[svm.cursor][0])
+				logger.Printf("i key was pressed will now try to install package: %v", svm.searchedPackages.Rows()[svm.cursor][0])
 				logMu.Unlock()
-				return svm, InstallPackageCmd(svm.packageSearchTable.Rows()[svm.cursor][0])
+				return svm, InstallPackageCmd(svm.searchedPackages.Rows()[svm.cursor][0])
 			}
 		case "p":
-			if svm.selectSearchTable {
-				AddPackageToSelectedPackages(svm.packageSearchTable.Rows()[svm.cursor][0], &svm.selectedPackages)
+			if svm.searchedPackagesIsSelected {
+				AddPackageToSelectedPackages(svm.searchedPackages.Rows()[svm.cursor][0], &svm.installedPackages)
 				logMu.Lock()
 				logger.Printf("Add package to selected packages")
 				logMu.Unlock()
 			}
 			return svm, nil
 		case "enter":
-			if svm.selectSearchTable {
-				AddPackageToSelectedPackages(svm.packageSearchTable.Rows()[svm.cursor][0], &svm.selectedPackages)
+			if svm.searchedPackagesIsSelected {
+				AddPackageToSelectedPackages(svm.searchedPackages.Rows()[svm.cursor][0], &svm.installedPackages)
 				return svm, nil
 			}
 			logMu.Lock()
@@ -137,12 +137,12 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return svm, tea.Batch(tickCmd(), tickIncrCmd, SearchPackagesCmd(svm.inputField.Value()))
 		}
 		var cmd tea.Cmd
-		if !svm.selectSearchTable {
+		if !svm.searchedPackagesIsSelected {
 			svm.inputField, cmd = svm.inputField.Update(msg)
 		} else {
-			svm.packageSearchTable.SetCursor(svm.cursor)
+			svm.searchedPackages.SetCursor(svm.cursor)
 			logMu.Lock()
-			logger.Printf("Table moved cursor to position: %v", svm.packageSearchTable.Cursor())
+			logger.Printf("Table moved cursor to position: %v", svm.searchedPackages.Cursor())
 			logMu.Unlock()
 		}
 		return svm, cmd

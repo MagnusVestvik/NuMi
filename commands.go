@@ -45,15 +45,10 @@ func InstallPackageCmd(args ...string) tea.Cmd {
 		logMu.Lock()
 		logger.Printf("Executing InstallPackageCmd with args: %v", args)
 		logMu.Unlock()
-		response, err := runNuGetCommand("install", args[0]) // TODO: handle multiple args
-		if err != nil {
-			logMu.Lock()
-			logger.Printf("Error in InstallPackageCmd: %v", err)
-			logMu.Unlock()
-			return err
-		}
+		//response, err := runNuGetCommand("install", args[0]) // TODO: Commented out for testing purposes. Should also probably append success or somthing to the list that shows what packages was installed
+
 		return InstallPackage{
-			name: response,
+			name: "package installed :)", // TODO: actually implement
 		}
 	}
 }

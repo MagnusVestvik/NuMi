@@ -40,13 +40,13 @@ type BaseModel struct {
 
 type SearchViewModel struct {
 	BaseModel
-	packageSearchTable table.Model
-	selectSearchTable  bool
-	selectedPackages   SelectedPackages
-	isSearching        bool
-	cursor             int
-	inputField         textinput.Model
-	progressBar        progress.Model
+	searchedPackages           table.Model
+	searchedPackagesIsSelected bool
+	installedPackages          SelectedPackages
+	isSearching                bool
+	cursor                     int
+	inputField                 textinput.Model
+	progressBar                progress.Model
 }
 
 // TODO: legg til view for å laste ned flere pakker, enter = legge til en pakke til ny box hvor man tilslut kan laste ned alle selected pakker
@@ -75,11 +75,11 @@ func initSearchViewModel(baseModel BaseModel) SearchViewModel {
 		BorderForeground(lipgloss.Color("240"))
 	baseModel.style = baseStyle
 	searchViewModel := SearchViewModel{
-		BaseModel:         baseModel,
-		inputField:        ti,
-		progressBar:       progress.New(progress.WithDefaultGradient()),
-		selectSearchTable: false,
-		selectedPackages:  initSelectPackages(),
+		BaseModel:                  baseModel,
+		inputField:                 ti,
+		progressBar:                progress.New(progress.WithDefaultGradient()),
+		searchedPackagesIsSelected: false,
+		installedPackages:          initSelectPackages(),
 	}
 
 	return searchViewModel
@@ -109,7 +109,7 @@ func initStart() tea.Model {
 }
 
 func initSelectPackages() SelectedPackages {
-	defaultItem := []list.Item{
+	defaultItem := []list.Item{ // TODO: should be initalized to be empty ?? see https://github.com/charmbracelet/bubbletea/blob/master/examples/list-simple/main.go
 		item{title: "Packages", desc: "Packages that you add will apear here, and you can download multiple at the same time!"},
 	}
 	packagesList := list.New(defaultItem, list.NewDefaultDelegate(), 0, 0)
