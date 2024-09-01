@@ -110,7 +110,7 @@ func initStart() tea.Model {
 
 func initSelectPackages() SelectedPackages {
 	defaultItem := []list.Item{ // TODO: should be initalized to be empty ?? see https://github.com/charmbracelet/bubbletea/blob/master/examples/list-simple/main.go
-		item{title: "Packages", desc: "Packages that you add will apear here, and you can download multiple at the same time!"},
+		item{title: "Installed Packages", desc: "Installed Packages"},
 	}
 	packagesList := list.New(defaultItem, list.NewDefaultDelegate(), 0, 0)
 	packagesList.Title = "Selected Packages"
@@ -163,7 +163,7 @@ func (k keyMap) FullHelp() [][]key.Binding {
 	}
 }
 
-func AddPackageToSelectedPackages(packageName string, sp *SelectedPackages) {
+func addToInstalledPackages(packageName string, sp *SelectedPackages) {
 	newItem := item{title: packageName}
-	sp.packages.InsertItem(len(sp.packages.Items()), newItem)
+	sp.packages.InsertItem(len(sp.packages.Items())+1, newItem)
 }

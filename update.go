@@ -118,7 +118,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		case "p":
 			if svm.searchedPackagesIsSelected {
-				AddPackageToSelectedPackages(svm.searchedPackages.Rows()[svm.cursor][0], &svm.installedPackages)
+				addToInstalledPackages(svm.searchedPackages.Rows()[svm.cursor][0], &svm.installedPackages)
 				logMu.Lock()
 				logger.Printf("Add package to selected packages")
 				logMu.Unlock()
@@ -126,7 +126,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return svm, nil
 		case "enter":
 			if svm.searchedPackagesIsSelected {
-				AddPackageToSelectedPackages(svm.searchedPackages.Rows()[svm.cursor][0], &svm.installedPackages)
+				addToInstalledPackages(svm.searchedPackages.Rows()[svm.cursor][0], &svm.installedPackages)
 				return svm, nil
 			}
 			logMu.Lock()

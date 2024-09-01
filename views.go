@@ -54,7 +54,7 @@ func (svm SearchViewModel) View() string {
 		Height(svm.height).
 		Align(lipgloss.Center, lipgloss.Center)
 
-	installedPackages := svm.renderInstalledPackages()
+	installedPackages := svm.renderInstalledPackages() // TODO: dette rendrer feil, det ekspanderer aldri listen av pakker, den incrementer kun antalle i listen.
 	inputField := svm.renderSearchInputField()
 
 	// Indicates that no packages have been searched yet
@@ -62,17 +62,15 @@ func (svm SearchViewModel) View() string {
 		return container.Render(inputField)
 	}
 
-	inputField = lipgloss.JoinVertical(lipgloss.Center, inputField, "\n", svm.style.Render(svm.searchedPackages.View())+"\n") // TROR dette bare er tull...
+	inputField = lipgloss.JoinVertical(lipgloss.Center, inputField, "\n", svm.style.Render(svm.searchedPackages.View())+"\n")
 
-	if len(svm.installedPackages.packages.Items()) == 0 {
+	// TODO: its initalized with one item in the list, therefor it will always have one item somthing should be done about this but not sure whay yet.
+	if len(svm.installedPackages.packages.Items()) == 1 {
 		logMu.Lock()
 		logger.Printf("There are no installed packages yet")
 		logMu.Unlock()
 		return container.Render(inputField)
 	}
-	logMu.Lock()
-	logger.Printf("Installed packages is not empty, it contains: ", svm.installedPackages.packages.Items())
-	logMu.Unlock()
 
 	toRender := lipgloss.JoinVertical(lipgloss.Center, installedPackages, "\n", inputField)
 	return container.Render(toRender)
