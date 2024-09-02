@@ -132,7 +132,33 @@ func center(m BaseModel, s string) string {
 	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, s)
 
 }
+func updateInstalledPackages(packageName string, svm *SearchViewModel, availableWidth int) table.Model {
+	// TODO: needs to be changed.
+	columns := []table.Column{
+		{Title: "Installed Packages", Width: availableWidth - 4},
+	}
 
+	// packages is empty and needs to be created
+	if len(svm.installedPackages.packages.Rows()) == 0 {
+		columns := []table.Column{
+			{Title: "Installed Packages", Width: availableWidth - 4},
+		}
+		rows := []table.Row{
+			{packageName},
+		}
+		return table.New(
+			table.WithColumns(columns),
+			table.WithRows(rows),
+			table.WithFocused(true), // TODO: usikker på om denne er nødvendig
+		)
+	}
+	packages := append(svm.installedPackages.packages.Rows(), table.Row{packageName})
+	return table.New(
+		table.WithColumns(columns),
+		table.WithRows(packages),
+		table.WithFocused(true),
+	)
+}
 func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) table.Model {
 	if strings.Contains(searchResult.Result[1], "No results found") {
 		columns := []table.Column{
@@ -150,10 +176,6 @@ func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) tab
 
 	searchResult.Result = searchResult.Result[1:] // Remove the first element and the newline at the end
 	rows := make([]table.Row, len(searchResult.Result))
-	logMu.Lock()
-	logger.Printf("length of rows %v", len(rows))
-	logger.Printf("length of searchResult.Result %v", len(searchResult.Result))
-	logMu.Unlock()
 
 	rowContentWidth := make(map[string]int)
 	for i, pkg := range searchResult.Result {

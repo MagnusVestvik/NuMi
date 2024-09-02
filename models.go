@@ -49,9 +49,9 @@ type SearchViewModel struct {
 	progressBar                progress.Model
 }
 
-// TODO: legg til view for å laste ned flere pakker, enter = legge til en pakke til ny box hvor man tilslut kan laste ned alle selected pakker
+// TODO: dette kan kanskje skrives om til å bruke et table.Model som i searchedPackages
 type SelectedPackages struct {
-	packages      list.Model
+	packages      table.Model
 	progressBars  []progress.Model
 	isDownloading bool
 }
@@ -79,7 +79,6 @@ func initSearchViewModel(baseModel BaseModel) SearchViewModel {
 		inputField:                 ti,
 		progressBar:                progress.New(progress.WithDefaultGradient()),
 		searchedPackagesIsSelected: false,
-		installedPackages:          initSelectPackages(),
 	}
 
 	return searchViewModel
@@ -106,24 +105,6 @@ func initStart() tea.Model {
 		help:   help.New(),
 		keys:   globalKeys},
 	)
-}
-
-func initSelectPackages() SelectedPackages {
-	defaultItem := []list.Item{ // TODO: should be initalized to be empty ?? see https://github.com/charmbracelet/bubbletea/blob/master/examples/list-simple/main.go
-		item{title: "Installed Packages", desc: "Installed Packages"},
-	}
-	packagesList := list.New(defaultItem, list.NewDefaultDelegate(), 0, 0)
-	packagesList.Title = "Selected Packages"
-
-	selectedPackages := SelectedPackages{
-		packages:      packagesList,
-		isDownloading: false,
-	}
-
-	// TODO: check if there is a way to create a custom tooltip.
-	selectedPackages.packages.SetShowHelp(false)
-
-	return selectedPackages
 }
 
 func initListPackageViewModel() ListPackageViewModel {

@@ -76,6 +76,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return svm, nil
 
 	case InstallPackage:
+		svm.installedPackages = updateInstalledPackages(msg.name)
 
 		// TODO: implement
 		return svm, nil
