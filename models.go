@@ -143,8 +143,3 @@ func (k keyMap) FullHelp() [][]key.Binding {
 		{k.Help, k.Quit},                // second column
 	}
 }
-
-func addToInstalledPackages(packageName string, sp *SelectedPackages) {
-	newItem := item{title: packageName}
-	sp.packages.InsertItem(len(sp.packages.Items())+1, newItem)
-}

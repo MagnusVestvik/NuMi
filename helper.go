@@ -132,16 +132,15 @@ func center(m BaseModel, s string) string {
 	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, s)
 
 }
-func updateInstalledPackages(packageName string, svm *SearchViewModel, availableWidth int) table.Model {
-	// TODO: needs to be changed.
+func updateInstalledPackages(packageName string, svm *SearchViewModel) table.Model {
 	columns := []table.Column{
-		{Title: "Installed Packages", Width: availableWidth - 4},
+		{Title: "Installed Packages", Width: svm.width - 4},
 	}
 
 	// packages is empty and needs to be created
 	if len(svm.installedPackages.packages.Rows()) == 0 {
 		columns := []table.Column{
-			{Title: "Installed Packages", Width: availableWidth - 4},
+			{Title: "Installed Packages", Width: svm.width - 4},
 		}
 		rows := []table.Row{
 			{packageName},
@@ -267,4 +266,39 @@ func Max(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func arrangeInstalledPackagesTable(svm SearchViewModel, installedPackage InstallPackage) table.Model {
+	currentRowSize := len(svm.installedPackages.packages.Rows())
+	rows := make([]table.Row, currentRowSize+1)
+
+	for i, row := range svm.installedPackages.packages.Rows() {
+		rows[i] = row
+	}
+	rows[currentRowSize+1] = table.Row{installedPackage.name}
+
+	columns := []table.Column{
+		{Title: "Package Name", Width: svm.cursor},
+	}
+
+	t := table.New(
+		table.WithColumns(columns),
+		table.WithRows(rows),
+		table.WithFocused(true),
+	)
+
+	s := table.DefaultStyles()
+	s.Header = s.Header.
+		BorderStyle(lipgloss.NormalBorder()).
+		BorderForeground(lipgloss.Color("240")).
+		BorderBottom(true).
+		Bold(false)
+	s.Selected = s.Selected.
+		Foreground(lipgloss.Color("229")).
+		Background(lipgloss.Color("57")).
+		Bold(false)
+
+	t.SetStyles(s)
+
+	return t
 }

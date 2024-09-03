@@ -24,15 +24,6 @@ func (svm SearchViewModel) renderProgressBar() string {
 	return center(svm.BaseModel, pad)
 }
 
-func (svm SearchViewModel) renderInstalledPackages() string {
-	selectedPackagesStyle := lipgloss.NewStyle().
-		Border(lipgloss.RoundedBorder()).
-		BorderForeground(lipgloss.Color("62")).
-		Padding(1).
-		Width(svm.width / 2)
-	return selectedPackagesStyle.Render(svm.ViewSelectedPackages())
-}
-
 func (svm SearchViewModel) renderSearchInputField() string {
 	inputFieldStyle := lipgloss.NewStyle().
 		Border(lipgloss.RoundedBorder()).
@@ -54,7 +45,6 @@ func (svm SearchViewModel) View() string {
 		Height(svm.height).
 		Align(lipgloss.Center, lipgloss.Center)
 
-	installedPackages := svm.renderInstalledPackages() // TODO: dette rendrer feil, det ekspanderer aldri listen av pakker, den incrementer kun antalle i listen.
 	inputField := svm.renderSearchInputField()
 
 	// Indicates that no packages have been searched yet
@@ -64,39 +54,12 @@ func (svm SearchViewModel) View() string {
 
 	inputField = lipgloss.JoinVertical(lipgloss.Center, inputField, "\n", svm.style.Render(svm.searchedPackages.View())+"\n")
 
-	// TODO: its initalized with one item in the list, therefor it will always have one item somthing should be done about this but not sure whay yet.
-	if len(svm.installedPackages.packages.Items()) == 1 {
-		logMu.Lock()
-		logger.Printf("There are no installed packages yet")
-		logMu.Unlock()
+	if len(svm.installedPackages.packages.Rows()) == 0 {
 		return container.Render(inputField)
 	}
+	toRender := lipgloss.JoinHorizontal(lipgloss.Center, svm.style.Render(svm.installedPackages.packages.View()), "\n", inputField, svm.style.Render(svm.searchedPackages.View())+"\n") // TODO: endre dette er bare midlertidig for å se om alt fungerer
 
-	toRender := lipgloss.JoinVertical(lipgloss.Center, installedPackages, "\n", inputField)
 	return container.Render(toRender)
-}
-
-func (svm SearchViewModel) ViewSelectedPackages() string {
-	s := ""
-	// Renders progressbars for the selected packages
-	if svm.installedPackages.isDownloading {
-		for i := 0; i < len(svm.installedPackages.progressBars); i++ {
-			s += svm.installedPackages.progressBars[i].View() + "\n"
-		}
-		return s
-	}
-
-	packages := svm.installedPackages.packages.Items()
-	if len(packages) == 0 {
-		logMu.Lock()
-		logger.Printf("No packages selected in : " + svm.installedPackages.packages.View())
-		logMu.Unlock()
-		return svm.installedPackages.packages.Title
-	}
-	logMu.Lock()
-	logger.Printf("Rendering following packages: " + svm.installedPackages.packages.View())
-	logMu.Unlock()
-	return svm.installedPackages.packages.View()
 }
 
 func (lvm ListPackageViewModel) View() string {

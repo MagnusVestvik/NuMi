@@ -27,7 +27,7 @@ func SearchPackagesCmd(args ...string) tea.Cmd {
 		response, err := runNuGetCommand("search", args[0]) // TODO: handle multiple args
 		response = strings.Replace(response, "Source: nuget.org", "", 1)
 
-		response = strings.Replace(response, "Source: nuget.org", "", 1)
+		response = strings.Replace(response, "Source: nuget.org", "", 1) // TODO: det holder kasnkje å gjøre dette en gang ?
 		if err != nil {
 			logMu.Lock()
 			logger.Printf("Error in SearchPackagesCmd: %v", err)
@@ -48,7 +48,7 @@ func InstallPackageCmd(args ...string) tea.Cmd {
 		//response, err := runNuGetCommand("install", args[0]) // TODO: Commented out for testing purposes. Should also probably append success or somthing to the list that shows what packages was installed
 
 		return InstallPackage{
-			name: "package installed :)", // TODO: actually implement
+			name: args[0],
 		}
 	}
 }
