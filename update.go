@@ -77,6 +77,9 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	case InstallPackage:
 		svm.installedPackages.packages = arrangeInstalledPackagesTable(svm, msg)
+		logMu.Lock()
+		logger.Printf("a package was installed and installed packages now looks like this: ", svm.installedPackages.packages)
+		logMu.Unlock()
 		return svm, nil
 
 	case tea.KeyMsg:
@@ -125,8 +128,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return svm, nil
 		case "enter":
 			if svm.searchedPackagesIsSelected {
-				//addToInstalledPackages(svm.searchedPackages.Rows()[svm.cursor][0], &svm.installedPackages)
-				return svm, nil
+				return svm, InstallPackageCmd(svm.searchedPackages.Rows()[svm.cursor][0])
 			}
 			logMu.Lock()
 			logger.Printf("Serching for package with name of %v", svm.inputField.Value())

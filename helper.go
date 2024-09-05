@@ -268,15 +268,19 @@ func Max(a, b int) int {
 	return b
 }
 
-func arrangeInstalledPackagesTable(svm SearchViewModel, installedPackage InstallPackage) table.Model {
+func arrangeInstalledPackagesTable(svm SearchViewModel, installedPackage InstallPackage) table.Model { // TODO: Det er noe her som kræsjer
 	currentRowSize := len(svm.installedPackages.packages.Rows())
 	rows := make([]table.Row, currentRowSize+1)
 
 	for i, row := range svm.installedPackages.packages.Rows() {
 		rows[i] = row
 	}
-	rows[currentRowSize+1] = table.Row{installedPackage.name}
 
+	logMu.Lock()
+	logger.Printf("current rows size is: ", currentRowSize)
+	logger.Printf("the size of current rows is: ", len(rows))
+	logMu.Unlock()
+	rows[currentRowSize+1] = table.Row{installedPackage.name} // TODO: dette er out of bounds...
 	columns := []table.Column{
 		{Title: "Package Name", Width: svm.cursor},
 	}
