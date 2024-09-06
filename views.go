@@ -52,14 +52,10 @@ func (svm SearchViewModel) View() string {
 		return container.Render(inputField)
 	}
 
-	inputField = lipgloss.JoinVertical(lipgloss.Center, inputField, "\n", svm.style.Render(svm.searchedPackages.View())+"\n")
+	searchedPackagesContainer := svm.style.Render(svm.searchedPackages.View()) + "\n"
 
-	if len(svm.installedPackages.packages.Rows()) == 0 {
-		return container.Render(inputField)
-	}
-	toRender := lipgloss.JoinHorizontal(lipgloss.Center, svm.style.Render(svm.installedPackages.packages.View()), "\n", inputField, svm.style.Render(svm.searchedPackages.View())+"\n") // TODO: endre dette er bare midlertidig for å se om alt fungerer
+	return container.Render(lipgloss.JoinVertical(lipgloss.Center, inputField, searchedPackagesContainer))
 
-	return container.Render(toRender)
 }
 
 func (lvm ListPackageViewModel) View() string {

@@ -42,7 +42,6 @@ type SearchViewModel struct {
 	BaseModel
 	searchedPackages           table.Model
 	searchedPackagesIsSelected bool
-	installedPackages          SelectedPackages
 	isSearching                bool
 	cursor                     int
 	inputField                 textinput.Model

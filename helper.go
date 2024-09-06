@@ -53,6 +53,7 @@ func ChangeViewState(viewState int, base BaseModel) (tea.Model, error) {
 		return initSearchViewModel(base), nil
 	}
 	return nil, errors.New("Invalid view state selected with viewState: " + string(viewState)) // TODO: fix this to not return a string of runes but rather a string of the actuall number
+
 }
 
 func runNuGetCommand(args ...string) (string, error) {
@@ -132,32 +133,7 @@ func center(m BaseModel, s string) string {
 	return lipgloss.Place(m.width, m.height, lipgloss.Center, lipgloss.Center, s)
 
 }
-func updateInstalledPackages(packageName string, svm *SearchViewModel) table.Model {
-	columns := []table.Column{
-		{Title: "Installed Packages", Width: svm.width - 4},
-	}
 
-	// packages is empty and needs to be created
-	if len(svm.installedPackages.packages.Rows()) == 0 {
-		columns := []table.Column{
-			{Title: "Installed Packages", Width: svm.width - 4},
-		}
-		rows := []table.Row{
-			{packageName},
-		}
-		return table.New(
-			table.WithColumns(columns),
-			table.WithRows(rows),
-			table.WithFocused(true), // TODO: usikker på om denne er nødvendig
-		)
-	}
-	packages := append(svm.installedPackages.packages.Rows(), table.Row{packageName})
-	return table.New(
-		table.WithColumns(columns),
-		table.WithRows(packages),
-		table.WithFocused(true),
-	)
-}
 func arrangeSearchResultTable(searchResult SearchResult, availableWidth int) table.Model {
 	if strings.Contains(searchResult.Result[1], "No results found") {
 		columns := []table.Column{
@@ -266,43 +242,4 @@ func Max(a, b int) int {
 		return a
 	}
 	return b
-}
-
-func arrangeInstalledPackagesTable(svm SearchViewModel, installedPackage InstallPackage) table.Model { // TODO: Det er noe her som kræsjer
-	currentRowSize := len(svm.installedPackages.packages.Rows())
-	rows := make([]table.Row, currentRowSize+1)
-
-	for i, row := range svm.installedPackages.packages.Rows() {
-		rows[i] = row
-	}
-
-	logMu.Lock()
-	logger.Printf("current rows size is: ", currentRowSize)
-	logger.Printf("the size of current rows is: ", len(rows))
-	logMu.Unlock()
-	rows[currentRowSize+1] = table.Row{installedPackage.name} // TODO: dette er out of bounds...
-	columns := []table.Column{
-		{Title: "Package Name", Width: svm.cursor},
-	}
-
-	t := table.New(
-		table.WithColumns(columns),
-		table.WithRows(rows),
-		table.WithFocused(true),
-	)
-
-	s := table.DefaultStyles()
-	s.Header = s.Header.
-		BorderStyle(lipgloss.NormalBorder()).
-		BorderForeground(lipgloss.Color("240")).
-		BorderBottom(true).
-		Bold(false)
-	s.Selected = s.Selected.
-		Foreground(lipgloss.Color("229")).
-		Background(lipgloss.Color("57")).
-		Bold(false)
-
-	t.SetStyles(s)
-
-	return t
 }

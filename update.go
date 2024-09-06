@@ -76,10 +76,7 @@ func (svm SearchViewModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return svm, nil
 
 	case InstallPackage:
-		svm.installedPackages.packages = arrangeInstalledPackagesTable(svm, msg)
-		logMu.Lock()
-		logger.Printf("a package was installed and installed packages now looks like this: ", svm.installedPackages.packages)
-		logMu.Unlock()
+		// TODO: Enkleste er ofte det beste, gi heller beskjed vedsiden av pakke som ble nedlastet om nedlastingen var Succesfful eller ikke.
 		return svm, nil
 
 	case tea.KeyMsg:
